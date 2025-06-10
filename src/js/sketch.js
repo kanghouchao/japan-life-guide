@@ -47,49 +47,28 @@ function draw() {
   fill(238, 49, 51);
   ellipse(width * 0.75, height * 0.22, width * 0.083, width * 0.083);
 
-  //mountain shape
-  fill(255);
+  //mountain shape - シンプルな台形の山
+  fill(24, 97, 161);
   beginShape();
-
-  // start redundant
-  curveVertex(0, height / 2 + 150);
-
-  curveVertex(0, height / 2 + 150);
-  curveVertex(0, height / 2 + 150);
-  curveVertex(width / 2 - 80, height / 2 - 150);
-  curveVertex(width / 2, height / 2 - 180);
-  curveVertex(width / 2 + 80, height / 2 - 150);
-  curveVertex(width, height / 2 + 150);
-
-  //end redundant
-  curveVertex(width, height / 2 + 150);
-
+  
+  // 台形の山を描画
+  vertex(0, height / 2 + 150);
+  vertex(width / 2 - 200, height / 2 - 100); // 左側の傾斜
+  vertex(width / 2 + 200, height / 2 - 100); // 右側の傾斜（平らな頂上）
+  vertex(width, height / 2 + 150);
+  
   endShape(CLOSE);
 
-
- //mountain shape
-  fill(24, 97, 161);
- // stroke(10);
+  // 山頂の白雪 - 白い梯形（山頂の上に重ねる）
+  fill(255);
   beginShape();
-
-  // start redundant
-  curveVertex(0, height / 2 + 150);
   
-  curveVertex(0, height / 2 + 150);
-  curveVertex(width / 2-180 , height / 2 - 50);
-
-  curveVertex(width / 2 - 120, height / 2 - 50);
-  curveVertex(width / 2 -60 , height / 2);
-  curveVertex(width / 2 , height / 2 -50 );
-  curveVertex(width / 2+60 , height / 2 );
-  curveVertex(width / 2+120, height / 2 - 50);
+  // 山頂の上に白雪の梯形を描画
+  vertex(width / 2 - 200, height / 2 - 100); // 左側の山頂（雪の底辺）
+  vertex(width / 2 - 100, height / 2 - 150); // 左側の雪頂
+  vertex(width / 2 + 100, height / 2 - 150); // 右側の雪頂
+  vertex(width / 2 + 200, height / 2 - 100); // 右側の山頂（雪の底辺）
   
-  curveVertex(width / 2+180, height / 2 - 50);
-  curveVertex(width, height / 2 + 150);
-
-  //end redundant
-  curveVertex(width, height / 2 + 150);
-
   endShape(CLOSE);
 
   fill(96, 152, 205);
