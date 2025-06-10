@@ -9,7 +9,7 @@ let flowery=0;
 
 // 飘落花朵数组
 let fallingFlowers = [];
-let maxFlowers = 15; // 最大花朵数量
+let maxFlowers = 20; // 最大花朵数量 - 从树枝上看起来更自然
 
 function setup() {
   // 获取header高度
@@ -272,17 +272,33 @@ function initializeFallingFlowers() {
 
 // 创建单个飘落花朵
 function createFallingFlower() {
+  // 定义樱花树枝的位置范围（基于代码中绘制的树枝位置）
+  let branchPositions = [
+    { x: width * 0.75, y: height * 0.33 },  // 上方枝条
+    { x: width * 0.875, y: height * 0.44 }, // 中间枝条
+    { x: width * 0.875, y: height * 0.5 },  // 下方枝条
+    { x: width * 0.94, y: height * 0.39 },  // 右侧枝条
+    { x: width, y: height * 0.33 },         // 最右上枝条
+    { x: width, y: height * 0.39 },         // 最右中枝条
+    { x: width, y: height * 0.5 }           // 最右下枝条
+  ];
+  
+  // 随机选择一个枝条位置作为起点
+  let startBranch = random(branchPositions);
+  
   return {
-    x: random(width),
-    y: random(-height, 0), // 从屏幕上方开始
-    size: random(8, 15),
-    speed: random(1, 3),
-    swaySpeed: random(0.02, 0.05),
-    swayAmount: random(10, 30),
+    x: startBranch.x + random(-30, 30), // 在枝条附近稍大范围随机
+    y: startBranch.y + random(-15, 10), // 从枝条位置开始，稍微上方一点
+    size: random(12, 18), // 增大花朵尺寸，与枝条上的花朵更匹配
+    speed: random(0.8, 2.5), // 稍微慢一点的落下速度
+    swaySpeed: random(0.008, 0.03), // 更柔和的摆动
+    swayAmount: random(25, 60), // 增大摆动幅度，让花朵能飘向画面中间
     rotation: random(TWO_PI),
-    rotationSpeed: random(-0.05, 0.05),
+    rotationSpeed: random(-0.03, 0.03), // 更慢的旋转
     color: random(['pink', 'white', 'dark']),
-    opacity: random(180, 255)
+    opacity: random(150, 220), // 稍微透明一些
+    delay: random(0, 60), // 添加随机延迟，让花朵不同时开始落下
+    driftDirection: random(-0.5, 0.2) // 添加向左飘移的趋势，让花朵向画面中间移动
   };
 }
 
@@ -291,25 +307,37 @@ function updateFallingFlowers() {
   for (let i = fallingFlowers.length - 1; i >= 0; i--) {
     let flower = fallingFlowers[i];
     
+    // 如果有延迟，先减少延迟时间
+    if (flower.delay > 0) {
+      flower.delay--;
+      continue; // 跳过这次更新，等待延迟结束
+    }
+    
     // 更新位置
     flower.y += flower.speed;
     flower.x += sin(flower.y * flower.swaySpeed) * flower.swayAmount * 0.1;
+    flower.x += flower.driftDirection; // 添加持续的向左飘移
     flower.rotation += flower.rotationSpeed;
     
-    // 如果花朵落到屏幕底部，重新创建
+    // 如果花朵落到屏幕底部，重新从树枝创建
     if (flower.y > height + 20) {
       fallingFlowers[i] = createFallingFlower();
     }
     
-    // 如果花朵飘出屏幕左右边界，调整位置
-    if (flower.x < -20) flower.x = width + 20;
-    if (flower.x > width + 20) flower.x = -20;
+    // 如果花朵飘出合理范围，重新从树枝创建
+    // 允许花朵飘到画面中央，但不要完全消失在左侧
+    if (flower.x < width * 0.3 || flower.x > width + 30) {
+      fallingFlowers[i] = createFallingFlower();
+    }
   }
 }
 
 // 绘制飘落花朵
 function drawFallingFlowers() {
   for (let flower of fallingFlowers) {
+    // 如果花朵还在延迟中，不绘制
+    if (flower.delay > 0) continue;
+    
     push();
     translate(flower.x, flower.y);
     rotate(flower.rotation);
@@ -325,10 +353,10 @@ function drawFallingFlowers() {
     
     noStroke();
     
-    // 绘制花瓣
-    for (let i = 0; i < 5; i++) {
-      ellipse(0, flower.size * 0.3, flower.size * 0.6, flower.size);
-      rotate(TWO_PI / 5);
+    // 绘制花瓣 - 改为8瓣，与枝条上的花朵一致
+    for (let i = 0; i < 8; i++) {
+      ellipse(0, flower.size * 0.4, flower.size * 0.8, flower.size * 1.5);
+      rotate(TWO_PI / 8);
     }
     
     // 绘制花心
