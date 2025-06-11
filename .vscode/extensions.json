@@ -1,9 +1,11 @@
 {
   "recommendations": [
+    "ritwickdey.liveserver",
     "github.copilot-chat",
     "github.copilot",
-    "ritwickdey.liveserver",
-    "yzhang.markdown-all-in-one",
+    "github.vscode-pull-request-github",
+    "davidanson.vscode-markdownlint",
+    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode"
   ]
 }
