@@ -68,13 +68,11 @@ japan-life-guide/
 
 ```bash
 # 1. プロジェクトをフォーク（GitHubのWebページで）
-# 2. クローン
 git clone https://github.com/[あなたのユーザー名]/japan-life-guide.git
+# 2. VS Codeで開く
 cd japan-life-guide
-
-# 3. VS Codeで開く
 code .
-# 4. Live Serverで起動（VS Code拡張機能）
+# 3. Live Serverで起動（VS Code拡張機能）
 ```
 
 プロジェクトの詳細なセットアップ手順については、[📖 プロジェクト開始ガイド](docs/getting-started.md)をご覧ください。
