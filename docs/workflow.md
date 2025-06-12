@@ -75,7 +75,7 @@ Issue作成後、VS Codeで新しいブランチを作成：
 
 #### 方法2: コマンドプロンプト
 
-```bash
+```cmd
 # 新しい機能ブランチを作成
 git checkout -b feature/機能名
 
@@ -159,7 +159,7 @@ refactor: コードリファクタリング
 
 #### コマンドプロンプトでのプッシュ
 
-```bash
+```cmd
 # 現在のブランチを自分のフォークにプッシュ
 git push origin feature/add-housing-page-#15
 
