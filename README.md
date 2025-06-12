@@ -57,10 +57,17 @@ japan-life-guide/
 │   │   └── waste-sorting.html
 │   └── 📁 images/
 │       └── favicon.ico
-├── 📁 docs/                   # ドキュメント
 ├── 📁 .github/workflows/      # GitHub Actions
 └── 📁 .vscode/               # VS Code設定
 ```
+
+## 📚 ドキュメント
+
+プロジェクトの詳細なドキュメントは **[GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki)** で管理されています：
+
+- 🚀 **[Getting Started](https://github.com/kanghouchao/japan-life-guide/wiki/Getting-Started)** - 開発環境のセットアップ
+- 🔄 **[Workflow](https://github.com/kanghouchao/japan-life-guide/wiki/Workflow)** - 開発ワークフローと貢献手順
+- 🏠 **[Home](https://github.com/kanghouchao/japan-life-guide/wiki)** - プロジェクト概要とナビゲーション
 
 ## 🚀 開発を始める
 
@@ -68,8 +75,8 @@ japan-life-guide/
 
 **Git/GitHub初心者の方**は、詳細なセットアップ手順をご確認ください：
 
-- 📖 **[プロジェクト開始ガイド](docs/getting-started.md)** - VS Code、Git、GitHub の設定から始める
-- 🔄 **[開発ワークフローガイド](docs/workflow.md)** - Fork-based開発の日常的な作業手順
+- 📖 **[プロジェクト開始ガイド](https://github.com/kanghouchao/japan-life-guide/wiki/Getting-Started)** - VS Code、Git、GitHub の設定から始める
+- 🔄 **[開発ワークフローガイド](https://github.com/kanghouchao/japan-life-guide/wiki/Workflow)** - Fork-based開発の日常的な作業手順
 
 ### ⚡ 経験者向けクイックスタート
 
@@ -86,5 +93,6 @@ code .
 
 ### 💡 サポート
 
+- 📚 **ドキュメント**: [GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki) で詳細なガイドをご確認ください
 - 🐛 **バグ報告・機能提案**: [Issues](https://github.com/kanghouchao/japan-life-guide/issues)
 - ❓ **質問・相談**: [Issues](https://github.com/kanghouchao/japan-life-guide/issues)またはPRコメントでお気軽に！
