@@ -159,7 +159,7 @@ SSH設定が難しい場合は、HTTPS方式でも利用できます：
 
 ### 5️⃣ プロジェクトの取得
 
-#### 🔽 ステップ1: リポジトリをフォーク
+#### 1️⃣ リポジトリをフォーク
 
 1. **Japan Life Guide のGitHubページにアクセス**  
    [https://github.com/kanghouchao/japan-life-guide](https://github.com/kanghouchao/japan-life-guide) を開きます
@@ -170,7 +170,7 @@ SSH設定が難しい場合は、HTTPS方式でも利用できます：
 3. **フォーク作成**  
    「Create fork」ボタンをクリックして、あなたのアカウントにリポジトリのコピーを作成します
 
-#### 📥 ステップ2: プロジェクトをダウンロード（クローン）
+#### 2️⃣ プロジェクトをダウンロード（クローン）
 
 1. **あなたのフォークしたリポジトリにアクセス**  
    `https://github.com/[あなたのユーザー名]/japan-life-guide` に移動します
@@ -186,19 +186,19 @@ SSH設定が難しい場合は、HTTPS方式でも利用できます：
    git clone [コピーしたURL]
    ```
 
-   例（SSH）：
+   **SSH方式の例**：
 
    ```bash
    git clone git@github.com:あなたのユーザー名/japan-life-guide.git
    ```
 
-   例（HTTPS）：
+   **HTTPS方式の例**：
 
    ```bash
    git clone https://github.com/あなたのユーザー名/japan-life-guide.git
    ```
 
-#### 📂 ステップ3: プロジェクトフォルダを開く
+#### 3️⃣ プロジェクトフォルダを開く
 
 1. **フォルダに移動**  
 
