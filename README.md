@@ -23,76 +23,29 @@ Japan Life Guideは、日本で新生活を始める外国人の方々を支援�
 - 日本の生活ルールを学びたい方
 - 多言語での情報が必要な方
 
-## 🛠️ 技術スタック
-
-### フロントエンド
-
-- **HTML** - セマンティックマークアップ
-- **CSS** - モダンスタイリング、フレックスボックス
-- **JavaScript** - バニラJS、モジュラー設計
-  - **P5.js** - アニメーション・グラフィックス
-
-### 開発環境
-
-- **VS Code** - 推奨エディタ
-- **Git** - バージョン管理
-
 ## 📁 プロジェクト構造
 
 ```text
 japan-life-guide/
-├── 📁 src/                    # メインソースコード
-│   ├── index.html             # ホームページ
-│   ├── 📁 css/
-│   │   ├── main.css          # 共通スタイル
-│   │   └── index.css         # ホーム専用スタイル
-│   ├── 📁 js/
-│   │   ├── main.js           # 多言語機能
-│   │   ├── sketch.js         # P5.jsアニメーション
-│   │   └── translations.json # 翻訳データ
-│   ├── 📁 pages/             # コンテンツページ
-│   │   ├── registration.html
-│   │   ├── phone-card.html
-│   │   ├── bank-card.html
-│   │   └── waste-sorting.html
-│   └── 📁 images/
-│       └── favicon.ico
-├── 📁 .github/workflows/      # GitHub Actions
-└── 📁 .vscode/               # VS Code設定
+├── src/                       # メインソースコード
+│   ├── index.html            # ホームページ
+│   ├── css/                  # スタイルシート
+│   ├── js/                   # JavaScript（多言語機能・アニメーション）
+│   └── pages/                # コンテンツページ
+├── .github/workflows/        # CI/CD設定
+└── .vscode/                  # 開発環境設定
 ```
-
-## 📚 ドキュメント
-
-プロジェクトの詳細なドキュメントは **[GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki)** で管理されています：
-
-- 🚀 **[Getting Started](https://github.com/kanghouchao/japan-life-guide/wiki/Getting-Started)** - 開発環境のセットアップ
-- 🔄 **[Workflow](https://github.com/kanghouchao/japan-life-guide/wiki/Workflow)** - 開発ワークフローと貢献手順
-- 🏠 **[Home](https://github.com/kanghouchao/japan-life-guide/wiki)** - プロジェクト概要とナビゲーション
 
 ## 🚀 開発を始める
 
-### 🔰 初めての方へ
+### 📖 詳細なガイド
 
-**Git/GitHub初心者の方**は、詳細なセットアップ手順をご確認ください：
+**[GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki)** で環境設定から開発フローまで詳しく説明しています：
 
-- 📖 **[プロジェクト開始ガイド](https://github.com/kanghouchao/japan-life-guide/wiki/Getting-Started)** - VS Code、Git、GitHub の設定から始める
-- 🔄 **[開発ワークフローガイド](https://github.com/kanghouchao/japan-life-guide/wiki/Workflow)** - Fork-based開発の日常的な作業手順
-
-### ⚡ 経験者向けクイックスタート
-
-**既にGitとGitHubが設定済みの場合：**
-
-```bash
-# 1. プロジェクトをフォーク（GitHubのWebページで）
-git clone https://github.com/[あなたのユーザー名]/japan-life-guide.git
-# 2. VS Codeで開く
-cd japan-life-guide
-code .
-# 3. Live Serverで起動（VS Code拡張機能）
-```
+- 🚀 **[Getting Started](https://github.com/kanghouchao/japan-life-guide/wiki/Getting-Started)** - 開発環境のセットアップ
+- 🔄 **[Workflow](https://github.com/kanghouchao/japan-life-guide/wiki/Workflow)** - 開発ワークフローと貢献手順
 
 ### 💡 サポート
 
-- 📚 **ドキュメント**: [GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki) で詳細なガイドをご確認ください
-- 🐛 **バグ報告・機能提案**: [Issues](https://github.com/kanghouchao/japan-life-guide/issues)
-- ❓ **質問・相談**: [Issues](https://github.com/kanghouchao/japan-life-guide/issues)またはPRコメントでお気軽に！
+- 📚 **[GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki)** - 詳細なドキュメント
+- 🐛 **[Issues](https://github.com/kanghouchao/japan-life-guide/issues)** - バグ報告・機能提案・質問
