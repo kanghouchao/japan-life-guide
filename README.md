@@ -6,6 +6,27 @@
 ![Static Badge](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![Static Badge](https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black)
 
+## 🚀 開発者向けクイックスタート
+
+**既存開発者の方はこちら**：
+
+```bash
+# 1. フォーク後、クローン
+git clone https://github.com/[ユーザー名]/japan-life-guide.git
+cd japan-life-guide
+
+# 2. VS Codeで開いてLive Server起動
+code .
+```
+
+**📋 開発ガイド**:
+
+- 🔰 **初回参加者**: [📖 プロジェクト開始ガイド](docs/getting-started.md)
+- 🔄 **開発ワークフロー**: [🔄 開発ワークフローガイド](docs/workflow.md)
+- 💡 **質問・報告**: [Issues](../../issues)へお気軽にどうぞ！
+
+---
+
 ## 📖 概要
 
 Japan Life Guideは、日本で新生活を始める外国人の方々を支援するためのWebガイドです。これは学校の授業課題として制作された学生作品で、教師の指導のもと複数の学生が協力して開発しました。実際の外国人が抱える課題を理解し、技術的なスキルとユーザビリティの両方を学ぶことを目的としています。
@@ -64,6 +85,15 @@ japan-life-guide/
 
 ## 🚀 開発を始める
 
+### 🔰 初めての方へ
+
+**Git/GitHub初心者の方**は、詳細なセットアップ手順をご確認ください：
+
+- 📖 **[プロジェクト開始ガイド](docs/getting-started.md)** - VS Code、Git、GitHub の設定から始める
+- 🔄 **[開発ワークフローガイド](docs/workflow.md)** - Fork-based開発の日常的な作業手順
+
+### ⚡ 経験者向けクイックスタート
+
 **既にGitとGithubが設定済みの場合：**
 
 ```bash
@@ -75,6 +105,7 @@ code .
 # 3. Live Serverで起動（VS Code拡張機能）
 ```
 
-プロジェクトの詳細なセットアップ手順については、[📖 プロジェクト開始ガイド](docs/getting-started.md)をご覧ください。
+### 💡 サポート
 
-💡 **問題が発生した場合は、[Issues](../../issues)で質問や報告をお気軽にどうぞ！**
+- 🐛 **バグ報告・機能提案**: [Issues](../../issues)
+- ❓ **質問・相談**: IssueまたはPRコメントでお気軽に！
