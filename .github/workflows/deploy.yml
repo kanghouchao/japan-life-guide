@@ -12,6 +12,10 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     if: github.event.pull_request.merged == true
+    permissions:
+      contents: read
+      pull-requests: read
+      actions: read
 
     steps:
       - name: Checkout code
