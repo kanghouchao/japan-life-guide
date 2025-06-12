@@ -150,12 +150,40 @@ ssh -T git@github.com
 
 「Hi [ユーザー名]! You've successfully authenticated...」が表示されれば成功です。
 
-#### 🔑 方法B: HTTPSを使用（簡単設定）
+#### 🔑 方法B: HTTPSを使用（Personal Access Token）
 
-SSH設定が難しい場合は、HTTPS方式でも利用できます：
+SSH設定が難しい場合は、HTTPS方式とPersonal Access Tokenを使用して認証できます：
 
-- リポジトリのクローン時にGitHubのユーザー名とパスワード（またはPersonal Access Token）を入力
-- 毎回認証が必要ですが、設定は簡単です
+##### Personal Access Tokenの作成
+
+1. **GitHubの設定画面にアクセス**  
+   GitHubにログインし、右上のプロフィール画像をクリック → 「Settings」
+
+2. **Developer settingsに移動**  
+   左サイドバーの一番下にある「Developer settings」をクリック
+
+3. **Personal access tokensを選択**  
+   左サイドバーの「Personal access tokens」→「Tokens (classic)」をクリック
+
+4. **新しいトークンを生成**  
+   「Generate new token」→「Generate new token (classic)」をクリック
+
+5. **トークンの設定**  
+   - **Note**: 分かりやすい名前（例：「Japan Life Guide Development」）
+   - **Expiration**: 適切な有効期限を設定（90日推奨）
+   - **Scopes**: 「repo」にチェックを入れる
+
+6. **トークンをコピー**  
+   「Generate token」をクリックし、表示されたトークンを**安全な場所に保存**
+
+   ⚠️ **重要**: トークンは一度しか表示されないため、必ずコピーして保存してください
+
+##### 認証の設定
+
+- リポジトリのクローン・プッシュ時にユーザー名とパスワードを求められたら：
+  - **ユーザー名**: GitHubのユーザー名
+  - **パスワード**: 作成したPersonal Access Token（パスワードではありません）
+- 毎回認証が必要ですが、設定は比較的簡単です
 
 ### 5️⃣ プロジェクトの取得
 
@@ -253,7 +281,7 @@ VS Codeでプロジェクトフォルダーを開いたときに、推奨拡張�
 | **Live Server** | `ritwickdey.liveserver` | 開発サーバー | ✅ 必須 |
 | **Prettier** | `esbenp.prettier-vscode` | コードフォーマッター | 🔥 推奨 |
 | **GitHub Copilot** | `github.copilot` | AI支援 | 💡 便利 |
-| **Markdown Lint** | `davidanson.vscode-markdownlint` | Markdownチェック | 📝 推奨 |
+| **Markdown Lint** | `davidanson.vscode-markdownlint` | Markdownチェック | 🔥 推奨 |
 
 **インストール手順**：
 
