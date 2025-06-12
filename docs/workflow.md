@@ -188,10 +188,16 @@ git push -u origin feature/add-housing-page-#15
 #### プルリクエストの流れ
 
 ```mermaid
-graph LR
-    A[自分のフォーク] -->|Push| B[GitHub上の自分のフォーク]
-    B -->|Pull Request| C[元のリポジトリ]
-    C -->|Review & Merge| C
+graph TD
+    A[ローカル開発] -->|git push| B[GitHub上の自分のフォーク]
+    B -->|Pull Request作成| C[元のリポジトリでPR]
+    C -->|コードレビュー| D{レビュー結果}
+    D -->|修正が必要| E[修正作業]
+    E -->|git push| F[PRを自動更新]
+    F -->|再度レビュー| D
+    D -->|承認| G[メインブランチにマージ]
+    G --> H[自分のフォークを同期]
+    H --> I[ローカルブランチを更新]
 ```
 
 ---
