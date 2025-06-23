@@ -1,9 +1,9 @@
 const CONFIG = {
   colors: {
     sky: {
-      top: "rgb(233, 241, 244)",
-      middle: "rgb(179, 216, 235)",
-      bottom: "rgb(109, 169, 196)"
+      top: 'rgb(233, 241, 244)',
+      middle: 'rgb(179, 216, 235)',
+      bottom: 'rgb(109, 169, 196)'
     },
     sun: [238, 49, 51],
     mountain: [24, 97, 161],
@@ -37,11 +37,11 @@ let fallingFlowers = [];
 function setup() {
   const header = document.querySelector('header');
   const headerHeight = header ? header.offsetHeight : 80;
-  
+
   const canvasHeight = windowHeight - headerHeight;
   const canvas = createCanvas(windowWidth, canvasHeight);
   canvas.parent('p5-canvas');
-  
+
   fill(100, 150, 255);
   initializeFallingFlowers();
 }
@@ -56,7 +56,7 @@ function draw() {
   drawWater();
   drawClouds();
   drawCherryBlossomTree();
-  
+
   updateFallingFlowers();
   drawFallingFlowers();
   drawWaterReflections();
@@ -66,7 +66,12 @@ function draw() {
  * Draw gradient sky background
  */
 function drawSky() {
-  const gradient = drawingContext.createLinearGradient(width / 2, 0, width / 2, height);
+  const gradient = drawingContext.createLinearGradient(
+    width / 2,
+    0,
+    width / 2,
+    height
+  );
   gradient.addColorStop(0, CONFIG.colors.sky.top);
   gradient.addColorStop(0.5, CONFIG.colors.sky.middle);
   gradient.addColorStop(1, CONFIG.colors.sky.bottom);
@@ -137,34 +142,51 @@ function drawCherryBlossomTree() {
   line(width * 0.875, height * 0.44, width * 0.75, height * 0.33);
   line(width, height * 0.33, width * 0.94, height * 0.39);
   line(width * 0.94, height * 0.39, width * 0.81, height * 0.28);
-   
+
   // Flower positions
   const darkFlowerPositions = [
-    [width * 0.95, height * 0.24], [width * 0.95, height * 0.33],
-    [width * 0.825, height * 0.31], [width * 0.775, height * 0.38],
-    [width * 0.9, height * 0.36], [width * 0.925, height * 0.52],
-    [width * 0.775, height * 0.48], [width * 0.7125, height * 0.46],
-    [width * 0.9875, height * 0.46], [width * 0.9875, height * 0.29]
+    [width * 0.95, height * 0.24],
+    [width * 0.95, height * 0.33],
+    [width * 0.825, height * 0.31],
+    [width * 0.775, height * 0.38],
+    [width * 0.9, height * 0.36],
+    [width * 0.925, height * 0.52],
+    [width * 0.775, height * 0.48],
+    [width * 0.7125, height * 0.46],
+    [width * 0.9875, height * 0.46],
+    [width * 0.9875, height * 0.29]
   ];
-  
+
   const pinkFlowerPositions = [
-    [width * 0.9375, height * 0.44], [width * 0.875, height * 0.42],
-    [width * 0.75, height * 0.36], [width * 0.85, height * 0.38],
-    [width * 0.875, height * 0.33], [width, height * 0.33],
-    [width, height * 0.22], [width, height * 0.44],
-    [width, height * 0.5], [width * 0.8125, height * 0.44],
+    [width * 0.9375, height * 0.44],
+    [width * 0.875, height * 0.42],
+    [width * 0.75, height * 0.36],
+    [width * 0.85, height * 0.38],
+    [width * 0.875, height * 0.33],
+    [width, height * 0.33],
+    [width, height * 0.22],
+    [width, height * 0.44],
+    [width, height * 0.5],
+    [width * 0.8125, height * 0.44],
     [width * 0.875, height * 0.5]
   ];
-  
+
   const whiteFlowerPositions = [
-    [width * 0.75, height * 0.44], [width * 0.75, height * 0.33],
-    [width * 0.8125, height * 0.29], [width * 0.8125, height * 0.39],
-    [width * 0.8125, height * 0.47], [width * 0.9375, height * 0.49],
-    [width * 0.9375, height * 0.38], [width * 0.875, height * 0.38],
-    [width * 0.875, height * 0.52], [width, height * 0.52],
-    [width, height * 0.41], [width, height * 0.3], [width, height * 0.24]
+    [width * 0.75, height * 0.44],
+    [width * 0.75, height * 0.33],
+    [width * 0.8125, height * 0.29],
+    [width * 0.8125, height * 0.39],
+    [width * 0.8125, height * 0.47],
+    [width * 0.9375, height * 0.49],
+    [width * 0.9375, height * 0.38],
+    [width * 0.875, height * 0.38],
+    [width * 0.875, height * 0.52],
+    [width, height * 0.52],
+    [width, height * 0.41],
+    [width, height * 0.3],
+    [width, height * 0.24]
   ];
-  
+
   // Draw flowers
   darkFlowerPositions.forEach(pos => drawFlower(pos[0], pos[1], 'dark'));
   pinkFlowerPositions.forEach(pos => drawFlower(pos[0], pos[1], 'pink'));
@@ -179,17 +201,42 @@ function makeCloud(cloudx, cloudy) {
   noStroke();
   const cloudSize = width * 0.09;
   ellipse(cloudx, cloudy, cloudSize, cloudSize * 0.7);
-  ellipse(cloudx + cloudSize * 0.14, cloudy + cloudSize * 0.14, cloudSize, cloudSize * 0.7);
-  ellipse(cloudx - cloudSize * 0.29, cloudy + cloudSize * 0.14, cloudSize, cloudSize * 0.7);
-  ellipse(cloudx - cloudSize * 0.57, cloudy + cloudSize * 0.14, cloudSize * 1.3, cloudSize * 0.43);
-  ellipse(cloudx - cloudSize * 0.71, cloudy + cloudSize * 0.14, cloudSize * 1.3, cloudSize * 0.43);
-  ellipse(cloudx + cloudSize * 0.57, cloudy + cloudSize * 0.14, cloudSize * 1.14, cloudSize * 0.57);
+  ellipse(
+    cloudx + cloudSize * 0.14,
+    cloudy + cloudSize * 0.14,
+    cloudSize,
+    cloudSize * 0.7
+  );
+  ellipse(
+    cloudx - cloudSize * 0.29,
+    cloudy + cloudSize * 0.14,
+    cloudSize,
+    cloudSize * 0.7
+  );
+  ellipse(
+    cloudx - cloudSize * 0.57,
+    cloudy + cloudSize * 0.14,
+    cloudSize * 1.3,
+    cloudSize * 0.43
+  );
+  ellipse(
+    cloudx - cloudSize * 0.71,
+    cloudy + cloudSize * 0.14,
+    cloudSize * 1.3,
+    cloudSize * 0.43
+  );
+  ellipse(
+    cloudx + cloudSize * 0.57,
+    cloudy + cloudSize * 0.14,
+    cloudSize * 1.14,
+    cloudSize * 0.57
+  );
 }
 
 /**
  * Draw a cherry blossom flower with specified color
  * @param {number} x - X position
- * @param {number} y - Y position  
+ * @param {number} y - Y position
  * @param {string} colorType - Color type: 'pink', 'white', or 'dark'
  */
 function drawFlower(x, y, colorType) {
@@ -197,13 +244,13 @@ function drawFlower(x, y, colorType) {
   fill(...CONFIG.colors.flower[colorType]);
   translate(x, y);
   noStroke();
-  
+
   for (let i = 0; i < CONFIG.flower.petalCount; i++) {
     ellipse(0, 5, CONFIG.flower.size, CONFIG.flower.size * 2);
     rotate(PI / 4);
   }
   pop();
-  
+
   fill(...CONFIG.colors.flower.center);
   noStroke();
   ellipse(x, y, CONFIG.flower.centerSize, CONFIG.flower.centerSize);
@@ -254,9 +301,9 @@ function createFallingFlower() {
     { x: width, y: height * 0.39 },
     { x: width, y: height * 0.5 }
   ];
-  
+
   const startBranch = random(branchPositions);
-  
+
   return {
     x: startBranch.x + random(-30, 30),
     y: startBranch.y + random(-15, 10),
@@ -279,21 +326,21 @@ function createFallingFlower() {
 function updateFallingFlowers() {
   for (let i = fallingFlowers.length - 1; i >= 0; i--) {
     const flower = fallingFlowers[i];
-    
+
     if (flower.delay > 0) {
       flower.delay--;
       continue;
     }
-    
+
     flower.y += flower.speed;
     flower.x += sin(flower.y * flower.swaySpeed) * flower.swayAmount * 0.1;
     flower.x += flower.driftDirection;
     flower.rotation += flower.rotationSpeed;
-    
+
     if (flower.y > height + 20) {
       fallingFlowers[i] = createFallingFlower();
     }
-    
+
     if (flower.x < width * 0.3 || flower.x > width + 30) {
       fallingFlowers[i] = createFallingFlower();
     }
@@ -306,11 +353,11 @@ function updateFallingFlowers() {
 function drawFallingFlowers() {
   for (const flower of fallingFlowers) {
     if (flower.delay > 0) continue;
-    
+
     push();
     translate(flower.x, flower.y);
     rotate(flower.rotation);
-    
+
     if (flower.color === 'pink') {
       fill(247, 161, 192, flower.opacity);
     } else if (flower.color === 'white') {
@@ -318,17 +365,17 @@ function drawFallingFlowers() {
     } else {
       fill(235, 103, 151, flower.opacity);
     }
-    
+
     noStroke();
-    
+
     for (let i = 0; i < 8; i++) {
       ellipse(0, flower.size * 0.4, flower.size * 0.8, flower.size * 1.5);
       rotate(TWO_PI / 8);
     }
-    
+
     fill(255, flower.opacity);
     ellipse(0, 0, flower.size * 0.3, flower.size * 0.3);
-    
+
     pop();
   }
 }

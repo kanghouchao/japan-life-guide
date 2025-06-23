@@ -4,8 +4,6 @@
     "github.copilot-chat",
     "github.copilot",
     "github.vscode-pull-request-github",
-    "davidanson.vscode-markdownlint",
-    "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode"
   ]
 }

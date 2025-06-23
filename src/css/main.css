@@ -1,84 +1,84 @@
 /* 共通スタイル */
 body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    font-family: Arial, sans-serif;
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: Arial, sans-serif;
 }
 
 /* ヘッダースタイル */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-    background-color: rgba(248, 249, 250, 0.95);
-    backdrop-filter: blur(10px);
-    border-bottom: 1px solid rgba(222, 226, 230, 0.5);
-    flex-wrap: wrap;
-    gap: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: rgba(248, 249, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(222, 226, 230, 0.5);
+  flex-wrap: wrap;
+  gap: 1rem;
 }
 
 .header-left {
-    display: flex;
-    align-items: center;
-    gap: 2rem;
-    flex-wrap: wrap;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
 }
 
 header h1 {
-    margin: 0;
+  margin: 0;
 }
 
 /* ナビゲーションスタイル */
 nav ul {
-    display: flex;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    gap: 1.5rem;
-    flex-wrap: wrap;
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 1.5rem;
+  flex-wrap: wrap;
 }
 
 nav a {
-    text-decoration: none;
-    color: #333;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.2s;
+  text-decoration: none;
+  color: #333;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s;
 }
 
 nav a:hover {
-    background-color: #e9ecef;
+  background-color: #e9ecef;
 }
 
 /* 言語選択スタイル */
 .language-selector {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .language-selector select {
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    background-color: white;
+  padding: 0.5rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  background-color: white;
 }
 
 /* メインコンテンツスタイル */
 main {
-    flex: 1;
-    padding: 2rem;
+  flex: 1;
+  padding: 2rem;
 }
 
 /* フッタースタイル */
 footer {
-    background-color: rgba(248, 249, 250, 0.95);
-    backdrop-filter: blur(10px);
-    border-top: 1px solid rgba(222, 226, 230, 0.5);
-    padding: 1rem 2rem;
-    text-align: center;
-    margin-top: auto;
+  background-color: rgba(248, 249, 250, 0.95);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(222, 226, 230, 0.5);
+  padding: 1rem 2rem;
+  text-align: center;
+  margin-top: auto;
 }

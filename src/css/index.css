@@ -1,20 +1,16 @@
-/* 首页样式 */
-
-/* P5.js 画布容器 */
 .canvas-container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1; /* 保证画布在背景层 */
-    overflow: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
 }
 
-/* 主内容区域 */
 main {
-    position: relative;
-    z-index: 1;
-    flex: 1;
-    overflow: hidden;
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  overflow: hidden;
 }
