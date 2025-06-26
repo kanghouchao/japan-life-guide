@@ -7,6 +7,7 @@ on:
       - main
     paths:
       - 'src/**'
+      - '.github/workflows/deploy.yml'
 
 jobs:
   deploy:
@@ -19,10 +20,10 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4.2.2
 
       - name: Copy src/ to server via SSH
-        uses: appleboy/scp-action@v0.1.7
+        uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
