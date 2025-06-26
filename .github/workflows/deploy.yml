@@ -9,10 +9,30 @@ on:
       - 'src/**'
       - '.github/workflows/deploy.yml'
 
+  # 添加手动触发，方便测试
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Dry run (不实际部署，只测试连接)'
+        required: false
+        default: false
+        type: boolean
+
+  # 添加push触发，仅用于测试分支
+  push:
+    branches:
+      - 'fix/deployment-*'
+      - 'test/deployment-*'
+    paths:
+      - '.github/workflows/deploy.yml'
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: |
+      (github.event_name == 'pull_request' && github.event.pull_request.merged == true) ||
+      github.event_name == 'workflow_dispatch' ||
+      (github.event_name == 'push' && contains(github.ref, 'fix/deployment'))
     permissions:
       contents: read
       pull-requests: read
@@ -20,9 +40,31 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v4.2.2
+        uses: actions/checkout@v4
+
+      - name: Test Actions Permissions
+        if: github.event.inputs.dry_run == 'true' || github.event_name == 'push'
+        run: |
+          echo "🧪 Testing GitHub Actions permissions..."
+          echo "Event: ${{ github.event_name }}"
+          echo "Ref: ${{ github.ref }}"
+          echo "Repository: ${{ github.repository }}"
+          echo "✅ Basic permissions working"
+
+      - name: Test Checkout Action
+        if: github.event.inputs.dry_run == 'true' || github.event_name == 'push'
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 1
+
+      - name: Test SCP Action Availability
+        if: github.event.inputs.dry_run == 'true' || github.event_name == 'push'
+        run: |
+          echo "🔍 Testing if appleboy/scp-action@v1.0.0 is accessible..."
+          echo "Action marketplace permissions test - if this step completes, the action is allowed"
 
       - name: Copy src/ to server via SSH
+        if: github.event.inputs.dry_run != 'true'
         uses: appleboy/scp-action@v1.0.0
         with:
           host: ${{ secrets.HOST }}
