@@ -85,6 +85,22 @@ japan-life-guide/
 
 ## 🚀 開発を始める
 
+### 📋 チーム開発ワークフロー / Team Development Workflow
+
+1. **📥 Issues**: 担当作業はGitHub Issuesで管理
+2. **🌿 ブランチ**: 機能ごとに個別ブランチを作成
+3. **🔄 プルリクエスト**: コードレビューを経て統合
+4. **💬 コミュニケーション**: Issues・PR・Discussionsでのやりとり
+
+### 👨‍💻 個人作業の進め方
+
+各担当者は以下の手順で作業を進めてください：
+
+1. **担当ページの設計**: 文化的配慮とユーザビリティを重視
+2. **多言語コンテンツ**: 母語での正確な情報提供
+3. **レスポンシブ対応**: モバイル・デスクトップでの最適表示
+4. **チームレビュー**: 他メンバーからのフィードバック反映
+
 ### 📖 詳細なガイド
 
 **[GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki)** で環境設定から開発フローまで詳しく説明しています：
@@ -95,4 +111,9 @@ japan-life-guide/
 ### 💡 サポート
 
 - 📚 **[GitHub Wiki](https://github.com/kanghouchao/japan-life-guide/wiki)** - 詳細なドキュメント
+- 👥 **[TEAM.md](./TEAM.md)** - チーム詳細情報・開発スケジュール
 - 🐛 **[Issues](https://github.com/kanghouchao/japan-life-guide/issues)** - バグ報告・機能提案・質問
+
+---
+
+**🌟 Let's build an amazing international exchange platform together! / 素晴らしい国際交流プラットフォームを一緒に作りましょう！**
