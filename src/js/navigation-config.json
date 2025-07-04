@@ -1,0 +1,48 @@
+{
+    "navigation": {
+        "home": {
+            "href": "./index.html",
+            "hrefFromPages": "../index.html",
+            "i18nKey": "nav.home",
+            "order": 1,
+            "isHome": true
+        },
+        "registration": {
+            "href": "./pages/registration.html",
+            "hrefFromPages": "./registration.html",
+            "i18nKey": "nav.registration",
+            "order": 2
+        },
+        "phone": {
+            "href": "./pages/phone-card.html",
+            "hrefFromPages": "./phone-card.html",
+            "i18nKey": "nav.phone",
+            "order": 3
+        },
+        "bank": {
+            "href": "./pages/bank-card.html",
+            "hrefFromPages": "./bank-card.html",
+            "i18nKey": "nav.bank",
+            "order": 4
+        },
+        "waste": {
+            "href": "./pages/waste-sorting.html",
+            "hrefFromPages": "./waste-sorting.html",
+            "i18nKey": "nav.waste",
+            "order": 5
+        },
+        "chinese_culture": {
+            "href": "./pages/chinese-culture.html",
+            "hrefFromPages": "./chinese-culture.html",
+            "i18nKey": "nav.chinese_culture",
+            "order": 6
+        },
+        "navigation_demo": {
+            "href": "./pages/navigation-demo.html",
+            "hrefFromPages": "./navigation-demo.html",
+            "i18nKey": "nav.demo",
+            "order": 99,
+            "isDevelopment": true
+        }
+    }
+}

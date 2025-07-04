@@ -53,6 +53,16 @@ nav a:hover {
   background-color: #e9ecef;
 }
 
+/* 活动导航项样式 */
+nav li.active a {
+  background-color: #007bff;
+  color: white;
+}
+
+nav li.active a:hover {
+  background-color: #0056b3;
+}
+
 /* 言語選択スタイル */
 .language-selector {
   display: flex;
