@@ -66,9 +66,22 @@ function initializeLanguage() {
 // 言語選択イベントリスナーを設定
 function setupLanguageSelector() {
   const languageSelect = document.getElementById('language');
-  languageSelect.addEventListener('change', function () {
-    changeLanguage(this.value);
-  });
+  if (languageSelect) {
+    languageSelect.addEventListener('change', function () {
+      changeLanguage(this.value);
+    });
+  }
+}
+
+// 翻訳システムを初期化する関数（導航栏生成后调用）
+function initializeTranslations() {
+  setupLanguageSelector();
+  initializeLanguage();
+}
+
+// 言語選択機能を初期化する関数（导航栏生成后调用）
+function initializeLanguageSelector() {
+  setupLanguageSelector();
 }
 
 // ページ読み込み時の初期化
@@ -77,9 +90,16 @@ document.addEventListener('DOMContentLoaded', async function () {
   const loaded = await loadTranslations();
 
   if (loaded) {
-    // 言語選択機能を初期化
-    setupLanguageSelector();
-    initializeLanguage();
+    // 如果导航栏已经生成，直接初始化翻译功能
+    if (document.getElementById('language')) {
+      initializeTranslations();
+    }
+    // 否则等待导航栏生成完成
+    else {
+      document.addEventListener('navigationGenerated', function () {
+        initializeTranslations();
+      });
+    }
   } else {
     console.error('翻訳システムの初期化に失敗しました');
   }
