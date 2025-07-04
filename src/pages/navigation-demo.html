@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Navigation System Demo - Japan Life Guide</title>
+    <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
+    <link rel="stylesheet" href="../css/main.css" />
+    <style>
+      .demo-section {
+        background: #f8f9fa;
+        padding: 2rem;
+        margin: 2rem 0;
+        border-radius: 8px;
+        border-left: 4px solid #007bff;
+      }
+      .demo-section h3 {
+        color: #007bff;
+        margin-top: 0;
+      }
+      .code-block {
+        background: #f1f3f4;
+        padding: 1rem;
+        border-radius: 4px;
+        font-family: 'Courier New', monospace;
+        font-size: 0.9rem;
+        overflow-x: auto;
+      }
+      .success {
+        color: #28a745;
+        font-weight: bold;
+      }
+      .status-indicator {
+        display: inline-block;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin-right: 8px;
+      }
+      .status-success {
+        background-color: #28a745;
+      }
+      .status-loading {
+        background-color: #ffc107;
+      }
+      .status-error {
+        background-color: #dc3545;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <!-- 导航栏将通过JavaScript动态生成 -->
+    </header>
+
+    <main>
+      <h1>导航栏模板系统演示页面</h1>
+
+      <div class="demo-section">
+        <h3>🚀 系统状态</h3>
+        <p id="system-status">
+          <span class="status-indicator status-loading"></span>
+          正在初始化导航系统...
+        </p>
+      </div>
+
+      <div class="demo-section">
+        <h3>📋 当前导航配置</h3>
+        <div id="nav-config" class="code-block">加载中...</div>
+      </div>
+
+      <div class="demo-section">
+        <h3>🎯 当前页面信息</h3>
+        <ul id="page-info">
+          <li>页面位置: <span id="page-location">检测中...</span></li>
+          <li>当前页面: <span id="current-page">检测中...</span></li>
+          <li>页面路径: <span id="page-path">检测中...</span></li>
+        </ul>
+      </div>
+
+      <div class="demo-section">
+        <h3>🛠️ 动态管理演示</h3>
+        <p>点击下面的按钮来测试动态添加/移除导航项功能：</p>
+        <button
+          onclick="addTestNavItem()"
+          style="
+            margin: 5px;
+            padding: 8px 16px;
+            background: #007bff;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          添加测试页面
+        </button>
+        <button
+          onclick="removeTestNavItem()"
+          style="
+            margin: 5px;
+            padding: 8px 16px;
+            background: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          移除测试页面
+        </button>
+        <button
+          onclick="updateNavOrder()"
+          style="
+            margin: 5px;
+            padding: 8px 16px;
+            background: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+          "
+        >
+          重新排序
+        </button>
+      </div>
+
+      <div class="demo-section">
+        <h3>📱 系统特性</h3>
+        <ul>
+          <li>✅ 自动路径检测和处理</li>
+          <li>✅ 活动页面状态高亮</li>
+          <li>✅ 多语言支持</li>
+          <li>✅ 响应式设计</li>
+          <li>✅ 动态导航管理</li>
+          <li>✅ 向后兼容</li>
+        </ul>
+      </div>
+
+      <div class="demo-section">
+        <h3>💡 使用说明</h3>
+        <p>
+          这个页面展示了新的导航栏模板系统的功能。导航栏现在完全通过JavaScript动态生成，这意味着：
+        </p>
+        <ul>
+          <li>只需要在一个地方(navigation-config.json)修改导航配置</li>
+          <li>所有页面的导航栏会自动保持一致</li>
+          <li>可以动态添加、移除或修改导航项</li>
+          <li>支持不同位置页面的自动路径处理</li>
+        </ul>
+      </div>
+    </main>
+
+    <footer>
+      <p data-i18n="footer.copyright">&copy; 2025 日本生活ガイド</p>
+    </footer>
+
+    <script src="../js/navigation-generator.js"></script>
+    <script src="../js/navigation-init.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+      // 演示页面特有的脚本
+      let testNavAdded = false;
+
+      // 监听导航生成完成事件
+      document.addEventListener('navigationGenerated', function (event) {
+        updateSystemStatus('success', '导航系统初始化完成！');
+        displayNavigationConfig(event.detail.navigationConfig);
+        displayPageInfo();
+      });
+
+      function updateSystemStatus(status, message) {
+        const statusElement = document.getElementById('system-status');
+        const indicator = statusElement.querySelector('.status-indicator');
+
+        indicator.className = `status-indicator status-${status}`;
+        statusElement.innerHTML = indicator.outerHTML + message;
+      }
+
+      function displayNavigationConfig(config) {
+        const configElement = document.getElementById('nav-config');
+        configElement.textContent = JSON.stringify(config, null, 2);
+      }
+
+      function displayPageInfo() {
+        const generator = window.navigationManager?.generator;
+        if (generator) {
+          document.getElementById('page-location').textContent =
+            generator.isInPagesFolder ? 'pages目录' : '根目录';
+          document.getElementById('current-page').textContent =
+            generator.currentPage;
+          document.getElementById('page-path').textContent =
+            window.location.pathname;
+        }
+      }
+
+      function addTestNavItem() {
+        if (!testNavAdded) {
+          window.navigationManager.addItem('demo', {
+            href: './pages/demo.html',
+            hrefFromPages: './demo.html',
+            i18nKey: 'nav.demo',
+            order: 7
+          });
+          testNavAdded = true;
+          alert('测试导航项已添加！');
+        } else {
+          alert('测试导航项已存在！');
+        }
+      }
+
+      function removeTestNavItem() {
+        if (testNavAdded) {
+          window.navigationManager.removeItem('demo');
+          testNavAdded = false;
+          alert('测试导航项已移除！');
+        } else {
+          alert('测试导航项不存在！');
+        }
+      }
+
+      function updateNavOrder() {
+        // 更新中国文化页面的顺序
+        window.navigationManager.updateItem('chinese_culture', { order: 3 });
+        alert('导航顺序已更新！中国文化页面移动到第3位。');
+      }
+
+      // 错误处理
+      window.addEventListener('error', function (event) {
+        updateSystemStatus('error', '系统出现错误: ' + event.message);
+      });
+
+      // 检查是否有必要的脚本加载失败
+      setTimeout(() => {
+        if (!window.NavigationGenerator) {
+          updateSystemStatus('error', '导航生成器未能加载！');
+        }
+      }, 3000);
+    </script>
+  </body>
+</html>
