@@ -1,0 +1,378 @@
+/* Chinese Culture Page Specific Styles */
+
+/* Smooth scrolling for the entire page */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Main container styling */
+.chinese-culture-main {
+  padding: 0;
+  margin: 0;
+}
+
+/* Hero Section */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #c41e3a 0%, #ff6b35 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.hero-content h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 0.5s forwards;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+  max-width: 600px;
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp 1s ease-out 1s forwards;
+}
+
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  font-size: 2rem;
+  animation: bounce 2s infinite;
+  opacity: 0;
+  animation: fadeInUp 1s ease-out 1.5s forwards, bounce 2s infinite 2.5s;
+}
+
+/* Culture Sections */
+.culture-section {
+  min-height: 100vh;
+  padding: 4rem 2rem;
+  display: flex;
+  align-items: center;
+  opacity: 0;
+  transform: translateY(50px);
+  transition: all 0.8s ease-out;
+}
+
+.culture-section.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.section-text h2 {
+  font-size: 3rem;
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+.section-text p {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+/* Feature Highlights */
+.feature-highlights {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.highlight-item {
+  padding: 1.5rem;
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.highlight-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+.highlight-item h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: #c41e3a;
+}
+
+.highlight-item p {
+  font-size: 1rem;
+  margin: 0;
+  color: #666;
+}
+
+/* Visual Placeholders */
+.visual-placeholder {
+  height: 400px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 4rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Language Section Specific */
+.language-section {
+  background: linear-gradient(45deg, #f8f9fa, #e9ecef);
+}
+
+.language-visual {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+.hanzi-display {
+  display: flex;
+  gap: 2rem;
+}
+
+.hanzi {
+  font-family: "Microsoft YaHei", "SimSun", serif;
+  font-weight: bold;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.hanzi.large {
+  font-size: 6rem;
+}
+
+.hanzi:hover {
+  transform: scale(1.1);
+}
+
+/* Food Section Specific */
+.food-section {
+  background: linear-gradient(45deg, #fff3e0, #ffe0b2);
+}
+
+.food-visual {
+  background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+}
+
+.food-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  font-size: 3rem;
+}
+
+.food-item {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 15px;
+  padding: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.food-item:hover {
+  transform: scale(1.1);
+}
+
+/* Architecture Section Specific */
+.architecture-section {
+  background: linear-gradient(45deg, #f3e5f5, #e1bee7);
+}
+
+.architecture-visual {
+  background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);
+}
+
+.architecture-icon {
+  position: relative;
+}
+
+.traditional-roof {
+  width: 200px;
+  height: 60px;
+  background: #8b4513;
+  position: relative;
+  border-radius: 0 0 20px 20px;
+  margin-bottom: 1rem;
+}
+
+.traditional-roof::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  height: 20px;
+  background: #654321;
+  border-radius: 30px 30px 0 0;
+}
+
+.pillars {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+}
+
+.pillar {
+  width: 20px;
+  height: 100px;
+  background: #8b4513;
+  border-radius: 10px;
+}
+
+/* Nature Section Specific */
+.nature-section {
+  background: linear-gradient(45deg, #e8f5e8, #c8e6c9);
+}
+
+.nature-visual {
+  background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);
+}
+
+.landscape {
+  position: relative;
+  width: 300px;
+  height: 200px;
+}
+
+.mountain-range {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  height: 150px;
+  position: absolute;
+  bottom: 50px;
+  width: 100%;
+}
+
+.mountain {
+  width: 60px;
+  height: 80px;
+  background: #4a5568;
+  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+  margin: 0 -10px;
+}
+
+.mountain.tall {
+  height: 120px;
+}
+
+.river {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 30px;
+  background: rgba(102, 166, 255, 0.7);
+  border-radius: 15px;
+}
+
+/* Animations */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+  
+  .hero-content p {
+    font-size: 1.2rem;
+    padding: 0 1rem;
+  }
+  
+  .section-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+  
+  .section-text h2 {
+    font-size: 2rem;
+  }
+  
+  .visual-placeholder {
+    height: 250px;
+    margin: 0 auto;
+    max-width: 300px;
+  }
+  
+  .culture-section {
+    padding: 2rem 1rem;
+  }
+  
+  .hanzi.large {
+    font-size: 4rem;
+  }
+  
+  .food-grid {
+    font-size: 2rem;
+    gap: 1rem;
+  }
+  
+  .traditional-roof,
+  .pillars {
+    width: 150px;
+  }
+  
+  .landscape {
+    width: 200px;
+    height: 150px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-content p {
+    font-size: 1rem;
+  }
+  
+  .section-text h2 {
+    font-size: 1.5rem;
+  }
+  
+  .culture-section {
+    min-height: auto;
+    padding: 1.5rem 0.5rem;
+  }
+  
+  .visual-placeholder {
+    height: 200px;
+  }
+}

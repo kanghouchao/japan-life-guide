@@ -7,6 +7,7 @@
         "nav.phone": "電話カード",
         "nav.bank": "銀行カード",
         "nav.waste": "ゴミの分別",
+        "nav.chinese_culture": "中国文化",
         "language.label": "言語:",
         "footer.copyright": "© 2025 日本生活ガイド",
         "registration.title": "登録手続き",
@@ -16,7 +17,17 @@
         "bank.title": "銀行口座・銀行カード",
         "bank.description": "日本での銀行口座開設と銀行カードの使い方について説明します。",
         "waste.title": "ゴミの分別",
-        "waste.description": "日本のゴミ分別ルールについて詳しく説明します。"
+        "waste.description": "日本のゴミ分別ルールについて詳しく説明します。",
+        "chinese_culture.title": "中国文化",
+        "chinese_culture.description": "中国の豊かな文化と伝統を探索します。",
+        "chinese_culture.language.title": "言語",
+        "chinese_culture.language.description": "中国語は世界で最も話されている言語の一つで、漢字という表意文字を使用します。",
+        "chinese_culture.food.title": "飲食",
+        "chinese_culture.food.description": "中華料理は地域によって異なる豊かな味と伝統的な調理法で知られています。",
+        "chinese_culture.architecture.title": "建築",
+        "chinese_culture.architecture.description": "中国建築は独特な構造と美しいデザインで、長い歴史を物語っています。",
+        "chinese_culture.nature.title": "自然景観",
+        "chinese_culture.nature.description": "中国は壮大な山々、美しい川、そして多様な自然景観で有名です。"
     },
     "zh": {
         "page.title": "日本生活指南",
@@ -26,6 +37,7 @@
         "nav.phone": "电话卡",
         "nav.bank": "银行卡",
         "nav.waste": "垃圾分类",
+        "nav.chinese_culture": "中国文化",
         "language.label": "语言:",
         "footer.copyright": "© 2025 日本生活指南",
         "registration.title": "登记手续",
@@ -35,7 +47,17 @@
         "bank.title": "银行账户・银行卡",
         "bank.description": "说明在日本开设银行账户和银行卡的使用方法。",
         "waste.title": "垃圾分类",
-        "waste.description": "详细说明日本的垃圾分类规则。"
+        "waste.description": "详细说明日本的垃圾分类规则。",
+        "chinese_culture.title": "中国文化",
+        "chinese_culture.description": "探索中国丰富的文化和传统。",
+        "chinese_culture.language.title": "语言",
+        "chinese_culture.language.description": "中文是世界上使用人数最多的语言之一，使用汉字这种表意文字。",
+        "chinese_culture.food.title": "饮食",
+        "chinese_culture.food.description": "中华料理以其丰富的口味和传统烹饪方法而闻名，各地区都有不同的特色。",
+        "chinese_culture.architecture.title": "建筑",
+        "chinese_culture.architecture.description": "中国建筑以其独特的结构和美丽的设计而著称，承载着悠久的历史。",
+        "chinese_culture.nature.title": "自然景观",
+        "chinese_culture.nature.description": "中国以其壮丽的山川、美丽的河流和多样的自然景观而闻名。"
     },
     "en": {
         "page.title": "Japan Life Guide",
@@ -45,6 +67,7 @@
         "nav.phone": "Phone Card",
         "nav.bank": "Bank Card",
         "nav.waste": "Waste Sorting",
+        "nav.chinese_culture": "Chinese Culture",
         "language.label": "Language:",
         "footer.copyright": "© 2025 Japan Life Guide",
         "registration.title": "Registration Procedures",
@@ -54,7 +77,17 @@
         "bank.title": "Bank Account・Bank Card",
         "bank.description": "Information about opening bank accounts and using bank cards in Japan.",
         "waste.title": "Waste Sorting",
-        "waste.description": "Detailed information about waste sorting rules in Japan."
+        "waste.description": "Detailed information about waste sorting rules in Japan.",
+        "chinese_culture.title": "Chinese Culture",
+        "chinese_culture.description": "Explore the rich culture and traditions of China.",
+        "chinese_culture.language.title": "Language",
+        "chinese_culture.language.description": "Chinese is one of the most spoken languages in the world, using ideographic characters called Hanzi.",
+        "chinese_culture.food.title": "Cuisine",
+        "chinese_culture.food.description": "Chinese cuisine is known for its rich flavors and traditional cooking methods, with each region having its own specialties.",
+        "chinese_culture.architecture.title": "Architecture",
+        "chinese_culture.architecture.description": "Chinese architecture is renowned for its unique structures and beautiful designs, carrying a long history.",
+        "chinese_culture.nature.title": "Natural Landscapes",
+        "chinese_culture.nature.description": "China is famous for its magnificent mountains, beautiful rivers, and diverse natural landscapes."
     },
     "mn": {
         "page.title": "Японы амьдралын гарын авлага",
@@ -64,6 +97,7 @@
         "nav.phone": "Утасны карт",
         "nav.bank": "Банкны карт",
         "nav.waste": "Хог ангилах",
+        "nav.chinese_culture": "Хятад соёл",
         "language.label": "Хэл:",
         "footer.copyright": "© 2025 Японы амьдралын гарын авлага",
         "registration.title": "Бүртгэлийн журам",
@@ -73,7 +107,17 @@
         "bank.title": "Банкны данс・банкны карт",
         "bank.description": "Японд банкны данс нээх болон банкны карт ашиглах талаар тайлбарлана.",
         "waste.title": "Хог ангилах",
-        "waste.description": "Японы хог ангилах дүрмийн талаар дэлгэрэнгүй тайлбарлана."
+        "waste.description": "Японы хог ангилах дүрмийн талаар дэлгэрэнгүй тайлбарлана.",
+        "chinese_culture.title": "Хятад соёл",
+        "chinese_culture.description": "Хятадын баялаг соёл, уламжлалыг судлаарай.",
+        "chinese_culture.language.title": "Хэл",
+        "chinese_culture.language.description": "Хятад хэл бол дэлхийн хамгийн олон хүмүүсийн ярьдаг хэлний нэг бөгөөд ханз гэх дүрслэл үсэг ашигладаг.",
+        "chinese_culture.food.title": "Хоол хүнс",
+        "chinese_culture.food.description": "Хятад хоол нь баялаг амт, уламжлалт хоол хийх аргаар алдартай бөгөөд бүс нутаг бүр өөрийн онцлогтой.",
+        "chinese_culture.architecture.title": "Архитектур",
+        "chinese_culture.architecture.description": "Хятад архитектур нь өвөрмөц бүтэц, гоё дизайнаараа алдартай бөгөөд урт түүхийг агуулж байна.",
+        "chinese_culture.nature.title": "Байгалийн ландшафт",
+        "chinese_culture.nature.description": "Хятад улс сүр жавхлант уулс, үзэсгэлэнт гол мөрөн, олон янзын байгалийн ландшафтаараа алдартай."
     },
     "ar": {
         "page.title": "دليل الحياة في اليابان",
@@ -83,6 +127,7 @@
         "nav.phone": "بطاقة الهاتف",
         "nav.bank": "بطاقة البنك",
         "nav.waste": "فرز النفايات",
+        "nav.chinese_culture": "الثقافة الصينية",
         "language.label": "اللغة:",
         "footer.copyright": "© 2025 دليل الحياة في اليابان",
         "registration.title": "إجراءات التسجيل",
@@ -92,6 +137,16 @@
         "bank.title": "حساب البنك・بطاقة البنك",
         "bank.description": "معلومات حول فتح حسابات البنك واستخدام بطاقات البنك في اليابان.",
         "waste.title": "فرز النفايات",
-        "waste.description": "معلومات مفصلة حول قواعد فرز النفايات في اليابان."
+        "waste.description": "معلومات مفصلة حول قواعد فرز النفايات في اليابان.",
+        "chinese_culture.title": "الثقافة الصينية",
+        "chinese_culture.description": "استكشف الثقافة والتقاليد الغنية للصين.",
+        "chinese_culture.language.title": "اللغة",
+        "chinese_culture.language.description": "الصينية هي واحدة من أكثر اللغات تحدثاً في العالم، وتستخدم رموزاً تصويرية تسمى هانزي.",
+        "chinese_culture.food.title": "المطبخ",
+        "chinese_culture.food.description": "المطبخ الصيني معروف بنكهاته الغنية وطرق الطبخ التقليدية، مع وجود تخصصات مختلفة لكل منطقة.",
+        "chinese_culture.architecture.title": "العمارة",
+        "chinese_culture.architecture.description": "العمارة الصينية مشهورة بهياكلها الفريدة وتصاميمها الجميلة، وتحمل تاريخاً طويلاً.",
+        "chinese_culture.nature.title": "المناظر الطبيعية",
+        "chinese_culture.nature.description": "الصين مشهورة بجبالها الرائعة وأنهارها الجميلة ومناظرها الطبيعية المتنوعة."
     }
 }
