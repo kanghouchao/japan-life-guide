@@ -36,13 +36,6 @@
             "hrefFromPages": "./chinese-culture.html",
             "i18nKey": "nav.chinese_culture",
             "order": 6
-        },
-        "navigation_demo": {
-            "href": "./pages/navigation-demo.html",
-            "hrefFromPages": "./navigation-demo.html",
-            "i18nKey": "nav.demo",
-            "order": 99,
-            "isDevelopment": true
         }
     }
 }
