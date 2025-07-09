@@ -18,7 +18,9 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(135deg, #c41e3a 0%, #ff6b35 100%);
+  background-image: url('../images/chinese-culture/main.png'); /* New background image */
+  background-size: cover; /* Ensure image covers the section */
+  background-position: center; /* Center the image */
   color: white;
   text-align: center;
   position: relative;
