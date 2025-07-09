@@ -83,16 +83,7 @@ function addHoverEffects() {
     });
   });
 
-  // Add special effects for hanzi characters
-  const hanziElements = document.querySelectorAll('.hanzi');
-  hanziElements.forEach(hanzi => {
-    hanzi.addEventListener('click', function() {
-      this.style.animation = 'none';
-      setTimeout(() => {
-        this.style.animation = 'fadeInUp 0.5s ease-out forwards';
-      }, 10);
-    });
-  });
+  
 }
 
 // Add scroll progress indicator
