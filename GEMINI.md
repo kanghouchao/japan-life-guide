@@ -23,17 +23,17 @@
 
 ## 3. 标准工作流程
 
-###如何添加新页面
+### 如何添加新页面
 
-1.  **创建文件**：在 `src/pages/` 目录中创建新的 `.html` 文件。
-2.  **更新导航配置**：在 `src/js/navigation-config.json` 中为新页面添加一个新对象。这包括定义其路径、翻译键 (`i18nKey`) 和显示顺序。
-3.  **添加翻译**：将新页面的导航标题和其任何内容的必要翻译键和值添加到 `src/js/translations.json` 中。这必须为 **所有** 语言完成。
-4.  **实现 HTML**：在新 HTML 文件中使用 `data-i18n` 属性从翻译文件中提取文本。
+1. **创建文件**：在 `src/pages/` 目录中创建新的 `.html` 文件。
+2. **更新导航配置**：在 `src/js/navigation-config.json` 中为新页面添加一个新对象。这包括定义其路径、翻译键 (`i18nKey`) 和显示顺序。
+3. **添加翻译**：将新页面的导航标题和其任何内容的必要翻译键和值添加到 `src/js/translations.json` 中。这必须为 **所有** 语言完成。
+4. **实现 HTML**：在新 HTML 文件中使用 `data-i18n` 属性从翻译文件中提取文本。
 
 ### 如何修改文本
 
-1.  **识别键**：在相关的 HTML 元素中找到 `data-i18n` 键。
-2.  **更新翻译**：在 `src/js/translations.json` 中找到此键，并为所需语言更新字符串值。
+1. **识别键**：在相关的 HTML 元素中找到 `data-i18n` 键。
+2. **更新翻译**：在 `src/js/translations.json` 中找到此键，并为所需语言更新字符串值。
 
 ## 4. 部署
 
@@ -58,3 +58,8 @@
 - **页面删除**：`src/pages/navigation-demo.html` 文件已被删除。
 - **配置更新**：`navigation_demo` 条目已从 `src/js/navigation-config.json` 中移除。
 - **脚本清理**：已验证并确认无需从 `src/js/main.js` 或 `src/js/chinese-culture.js` 中删除相关脚本。
+
+### 中国文化页面国际化与滚动指示器优化
+
+- **页面标题国际化**：为 `src/pages/chinese-culture.html` 的页面标题添加了国际化支持，现在通过 `src/js/translations.json` 中的 `chinese_culture.page_title` 键进行管理。
+- **滚动指示器优化**：调整了 `src/css/chinese-culture.css` 中滚动指示器（`scroll-indicator`）的样式和位置，使其在页面加载时更易于发现，并恢复了其原始颜色样式。
