@@ -42,8 +42,8 @@ html {
 
 .scroll-indicator {
   position: absolute;
-  bottom: 2rem;
-  font-size: 2rem;
+  bottom: 10rem; /* Moved up */
+  font-size: 3rem; /* Kept increased size */
   animation: bounce 2s infinite;
   opacity: 0;
   animation: fadeInUp 1s ease-out 1.5s forwards, bounce 2s infinite 2.5s;
