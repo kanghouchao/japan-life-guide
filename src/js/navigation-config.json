@@ -33,3 +33,20 @@
         }
     }
 }
+{
+    "navigation": {
+        "home": {
+            "href": "./index.html",
+            "hrefFromPages": "../index.html",
+            "i18nKey": "nav.home",
+            "order": 1,
+            "isHome": true
+        },
+        "chinese_culture": {
+            "href": "./pages/chinese-culture.html",
+            "hrefFromPages": "./chinese-culture.html",
+            "i18nKey": "nav.chinese_culture",
+            "order": 2
+        }
+    }
+}
