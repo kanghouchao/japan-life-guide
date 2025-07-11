@@ -64,6 +64,6 @@
 - **页面标题国际化**：为 `src/pages/chinese-culture.html` 的页面标题添加了国际化支持，现在通过 `src/js/translations.json` 中的 `chinese_culture.page_title` 键进行管理。
 - **滚动指示器优化**：调整了 `src/css/chinese-culture.css` 中滚动指示器（`scroll-indicator`）的样式和位置，使其在页面加载时更易于发现，并恢复了其原始颜色样式。
 
-### 英雄部分背景图片更新
+### 横幅图片更新
 
-- **背景图片替换**：将 `src/pages/chinese-culture.html` 页面英雄部分的背景从渐变色替换为 `src/images/chinese-culture/main.png` 图片。
+- **背景图片替换**：将 `src/pages/chinese-culture.html` 页面横幅图片从渐变色替换为 `src/images/chinese-culture/main.jpeg` 图片。
