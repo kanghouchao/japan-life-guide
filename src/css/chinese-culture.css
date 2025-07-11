@@ -18,7 +18,7 @@ html {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-image: url('../images/chinese-culture/main.png'); /* New background image */
+  background-image: url('../images/chinese-culture/main.jpeg'); /* New background image */
   background-size: cover; /* Ensure image covers the section */
   background-position: center; /* Center the image */
   color: white;
@@ -190,8 +190,6 @@ html {
   margin: 0 auto;
 }
 
-
-
 /* Architecture Section Specific */
 .architecture-section {
   background: linear-gradient(45deg, #f3e5f5, #e1bee7);
@@ -213,8 +211,6 @@ html {
   background-size: cover;
   background-position: center;
 }
-
-
 
 /* Animations */
 @keyframes fadeInUp {
@@ -274,7 +270,6 @@ html {
   .culture-section {
     padding: 2rem 1rem;
   }
-
 }
 
 @media (max-width: 480px) {
