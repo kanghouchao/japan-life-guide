@@ -1,17 +1,14 @@
 name: Deploy to NGINX server
 
 on:
-  pull_request:
-    types: [closed]
+  push:
     branches:
-      - main
-    paths:
-      - 'src/**'
+      - 'releases-v**'
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    if: github.event.pull_request.merged == true
+    if: github.event.created
     permissions:
       contents: read
       pull-requests: read
