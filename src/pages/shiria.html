@@ -10,17 +10,24 @@
       href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&family=Noto+Sans+JP:wght@400;700&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/syria.css" />
   </head>
   <body>
-    <nav class="main-nav">
-      <ul class="nav-links">
-        <li><a href="#civilization">文明 🏛️</a></li>
-        <li><a href="#culture">文化 🎨</a></li>
-        <li><a href="#cuisine">料理 🍲</a></li>
-        <li><a href="#arabic-language">アラビア語 ✍️</a></li>
-      </ul>
-    </nav>
+    <header class="main-header">
+      <div class="logo">日本生活ガイド</div>
+      <nav class="main-nav"></nav>
+      <div class="language-selector">
+        <label for="language-select">言語:</label>
+        <select id="language-select">
+          <option value="ja">日本語</option>
+          <option value="zh">中文</option>
+          <option value="en">English</option>
+          <option value="mn">Монгол</option>
+          <option value="ar">العربية</option>
+        </select>
+      </div>
+    </header>
 
     <header class="hero">
       <div class="hero-overlay"></div>
@@ -152,5 +159,8 @@
         observer.observe(section);
       });
     </script>
+    <script src="../js/main.js"></script>
+    <script src="../js/navigation-generator.js"></script>
+    <script src="../js/navigation-init.js"></script>
   </body>
 </html>
