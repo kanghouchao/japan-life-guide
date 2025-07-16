@@ -53,6 +53,12 @@
             "hrefFromPages": "./shiria.html",
             "i18nKey": "nav.syria_culture",
             "order": 3
+        },
+        "request": {
+            "href": "./pages/request.html",
+            "hrefFromPages": "./request.html",
+            "i18nKey": "nav.request",
+            "order": 4
         }
     }
 }
