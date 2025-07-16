@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link
+      rel="stylesheet"
+      as="style"
+      onload="this.rel='stylesheet'"
+      href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans%3Awght%40400%3B500%3B700%3B900&family=Plus+Jakarta+Sans%3Awght%40400%3B500%3B700%3B800"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200"
+    />
+
+    <title>CampusConnect - 図書館コミュニティ</title>
+    <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64," />
+
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+
+    <style>
+      /* ここにカスタムCSSを追加するよ。Tailwind CSSのクラスを補完する形で使うね！ */
+      .profile-section {
+        background-color: #1a1e23; /* 背景色を少し変えて目立たせる */
+        border-radius: 0.75rem; /* 角を丸くする */
+        padding: 1.5rem; /* 内側の余白 */
+        margin-top: 1.5rem; /* 上の要素との間隔 */
+      }
+      .message-board,
+      .news-admin-section {
+        /* 新着情報管理セクションも追加 */
+        background-color: #1a1e23;
+        border-radius: 0.75rem;
+        padding: 1.5rem;
+        margin-top: 1.5rem;
+      }
+      .message-item,
+      .news-item-display {
+        /* 新着情報表示アイテムも追加 */
+        background-color: #2b3036; /* 各アイテムの背景色 */
+        border-radius: 0.5rem;
+        padding: 1rem;
+        margin-bottom: 0.75rem; /* アイテム間の余白 */
+        transition: background-color 0.3s ease-in-out; /* 光る効果のためのトランジション */
+      }
+      .message-item:last-child,
+      .news-item-display:last-child {
+        margin-bottom: 0; /* 最後のメッセージは下に余白なし */
+      }
+
+      /* ✨ 上部ナビゲーションリンクとベルアイコンボタンのホバー効果だよ！ (光らせないように調整したよ！) ✨ */
+      header a.text-sm:hover,
+      header button:hover {
+        opacity: 0.9; /* 少し透明度を下げて、変化があるように見せる */
+        transform: translateY(0); /* 上に浮き上がる効果はなし */
+        transition: opacity 0.2s ease-in-out; /* スムーズなアニメーション */
+        text-shadow: none; /* ふわっとした光はなし */
+      }
+
+      /* ✨ 新着情報アイテムのホバー効果だよ！ (表示用) ✨ */
+      .news-item-display:hover {
+        background-color: #3a414a; /* 少し明るい背景色に変化 */
+        box-shadow: none; /* 光の影はなし */
+        transition: background-color 0.3s ease-in-out; /* スムーズなアニメーション */
+      }
+
+      /* Material Symbols Icons のスタイル調整 */
+      .material-symbols-outlined {
+        font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24; /* デフォルトのアイコンサイズに合わせて調整 */
+      }
+
+      /* サイドバーのスタイル (ここを修正するよ！) */
+      .sidebar {
+        position: fixed;
+        top: 0;
+        left: -300px; /* 初期状態では画面外に隠しておく */
+        width: 250px;
+        height: 100%;
+        background-color: #1a1e23;
+        color: white;
+        transition: left 0.3s ease-in-out; /* スムーズなアニメーション */
+        z-index: 1000; /* 他の要素より手前に表示 */
+        padding: 20px;
+        box-shadow: 2px 0 5px rgba(0, 0, 0, 0.5);
+        display: flex;
+        flex-direction: column; /* これで子要素が縦に並ぶよ！ */
+      }
+      .sidebar.open {
+        left: 0; /* 表示時は画面内にスライド */
+      }
+      .sidebar-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        display: none; /* 初期状態では非表示 */
+      }
+      .sidebar-overlay.open {
+        display: block; /* サイドバー表示時に表示 */
+      }
+      .sidebar-close-button {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 24px;
+        align-self: flex-end;
+        cursor: pointer;
+      }
+      .sidebar-nav-item {
+        padding: 10px 0;
+        cursor: pointer;
+        font-size: 18px;
+        border-bottom: 1px solid #2b3036;
+        /* ホバーで光らせないように、影や変形はなしにするよ！ */
+        transition: background-color 0.2s ease-in-out; /* 背景色だけ変化 */
+      }
+      .sidebar-nav-item:last-child {
+        border-bottom: none;
+      }
+      .sidebar-nav-item:hover {
+        background-color: #2b3036;
+        border-radius: 5px;
+        padding-left: 5px;
+        /* ここも光る効果をなくしたよ！ */
+        transform: none;
+        box-shadow: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div
+      class="relative flex size-full min-h-screen flex-col bg-[#121417] dark group/design-root overflow-x-hidden"
+      style="font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif"
+    >
+      <div class="sidebar-overlay" id="sidebarOverlay"></div>
+
+      <div class="sidebar" id="sidebar">
+        <button class="sidebar-close-button" id="closeSidebarButton">
+          <span class="material-symbols-outlined"> close </span>
+        </button>
+        <nav>
+          <div class="flex flex-col">
+            <a href="#" class="sidebar-nav-item">ホーム</a>
+            <a href="#" class="sidebar-nav-item">お知らせ</a>
+            <a href="#" class="sidebar-nav-item">イベント</a>
+            <a href="#" class="sidebar-nav-item">お問い合わせ</a>
+          </div>
+        </nav>
+      </div>
+
+      <div class="layout-container flex h-full grow flex-col">
+        <header
+          class="flex items-center justify-between whitespace-nowrap border-b border-solid border-b-[#2b3036] px-10 py-3"
+        >
+          <div class="flex items-center gap-4 text-white">
+            <button id="openSidebarButton" class="text-white">
+              <span class="material-symbols-outlined text-white text-3xl">
+                menu
+              </span>
+            </button>
+            <div class="size-4">
+              <span class="material-symbols-outlined text-white text-2xl">
+                library_books
+              </span>
+            </div>
+            <h2
+              class="text-white text-lg font-bold leading-tight tracking-[-0.015em]"
+            >
+              CampusConnect
+            </h2>
+          </div>
+          <div class="flex flex-1 justify-end gap-8">
+            <div class="flex items-center gap-9">
+              <a class="text-white text-sm font-medium leading-normal" href="#"
+                >ホーム</a
+              >
+            </div>
+            <button
+              class="flex max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 bg-[#2b3036] text-white gap-2 text-sm font-bold leading-normal tracking-[0.015em] min-w-0 px-2.5"
+            >
+              <div
+                class="text-white"
+                data-icon="Bell"
+                data-size="20px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-xl">
+                  notifications
+                </span>
+              </div>
+            </button>
+            <div class="flex items-center gap-2 text-white">
+              <div
+                class="bg-center bg-no-repeat aspect-square bg-cover rounded-full size-10"
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCaSzYJlJZrV90unyEF8V9x5hxghwuhdPaz3pP5H3Ze0osthb5kIUGUhpxIXqJnSlirDxDtR355SFyD0OTrugrzC88vQ_OHEHIvDRIhKIjNWsz6Nbx1sEcqT3jIktPleVcGBdJVhVA6-R-Pj3iZPw7tLXW6gErC1N8KV_6QW-qSB1HxXtnKVVPDn5F1_WV7tsWdLItmqO7Wp_snk7LB1uK7FELZfFeU_7FAeyF2-zi-2Ex3_KoBRbm1qZi_pwhnymRopZtDbyDAkbHi');
+                "
+              ></div>
+              <div class="flex flex-col">
+                <p class="text-sm font-medium leading-normal" id="userNickname">
+                  ゲスト
+                </p>
+                <p class="text-xs text-[#a1abb5]" id="userAffiliation">
+                  学科・学年未設定
+                </p>
+              </div>
+            </div>
+          </div>
+        </header>
+        <div class="px-40 flex flex-1 justify-center py-5">
+          <div
+            class="layout-content-container flex flex-col max-w-[960px] flex-1"
+          >
+            <div class="flex flex-wrap gap-2 p-4">
+              <a
+                class="text-[#a1abb5] text-base font-medium leading-normal"
+                href="#"
+                >コミュニティ</a
+              >
+              <span class="text-[#a1abb5] text-base font-medium leading-normal"
+                >/</span
+              >
+              <span class="text-white text-base font-medium leading-normal"
+                >図書館コミュニティスペース</span
+              >
+            </div>
+            <div class="flex flex-wrap justify-between gap-3 p-4">
+              <div class="flex min-w-72 flex-col gap-3">
+                <p
+                  class="text-white tracking-light text-[32px] font-bold leading-tight"
+                >
+                  図書館がもっと身近に！新しいコミュニティスペースへようこそ！📚✨
+                </p>
+                <p class="text-[#a1abb5] text-sm font-normal leading-normal">
+                  ここは単なる「本を借りる場所」ではありません。学生が繋がり、学びを深め、新しい発見をするための「コミュニティハブ」です。留学生と日本の学生が自然に交流できる場も提供し、誰もが歓迎される環境を目指しています。皆さんの積極的な参加を心からお待ちしています！
+                </p>
+              </div>
+            </div>
+
+            <div
+              id="newsDisplayArea"
+              class="flex flex-col px-4 pt-5"
+              style="max-height: 600px; overflow-y: auto"
+            ></div>
+
+            <h2
+              class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              図書館をもっと活用しよう！新サービスと活動のご案内 💡
+            </h2>
+            <p
+              class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4"
+            >
+              私たちの図書館では、皆さんのキャンパスライフをより豊かにするための様々な新しい取り組みを行っています。
+            </p>
+            <div
+              class="flex items-center gap-4 bg-[#121417] px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-12"
+                data-icon="BookOpen"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-3xl">
+                  menu_book
+                </span>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-white text-base font-medium leading-normal line-clamp-1"
+                >
+                  📚 学びたい本をリクエスト！蔵書拡充サービス
+                </p>
+                <p
+                  class="text-[#a1abb5] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  あなたの学びたい分野の本や資料を図書館にリクエストできます。学生の声に応え、図書館の蔵書を一緒に増やしましょう！
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-[#121417] px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-12"
+                data-icon="Monitor"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-3xl">
+                  smart_display
+                </span>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-white text-base font-medium leading-normal line-clamp-1"
+                >
+                  📣 あなたの作品をPR！図書館モニター広告サービス
+                </p>
+                <p
+                  class="text-[#a1abb5] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  制作した作品やイベントの告知を、図書館内のモニターで宣伝できます。学生の活動を応援する新しい試みです！
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-[#121417] px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-12"
+                data-icon="GameController"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-3xl">
+                  stadia_controller
+                </span>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-white text-base font-medium leading-normal line-clamp-1"
+                >
+                  🎲 国際交流ボードゲーム会！
+                </p>
+                <p
+                  class="text-[#a1abb5] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  図書館で貸し出しているボードゲームを囲んで、留学生と日本の学生が交流できるイベントを定期開催！言葉の壁を越えて楽しみましょう！
+                </p>
+              </div>
+            </div>
+            <div
+              class="flex items-center gap-4 bg-[#121417] px-4 min-h-[72px] py-2"
+            >
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-12"
+                data-icon="UsersThree"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-3xl">
+                  groups
+                </span>
+              </div>
+              <div class="flex flex-col justify-center">
+                <p
+                  class="text-white text-base font-medium leading-normal line-clamp-1"
+                >
+                  🤝 グループワーク・共同作業スペース
+                </p>
+                <p
+                  class="text-[#a1abb5] text-sm font-normal leading-normal line-clamp-2"
+                >
+                  図書館内に共同作業やグループワークに最適なスペースを設置しました。資料を広げて、友人と一緒に効率よく学習を進められます。
+                </p>
+              </div>
+            </div>
+
+            <h2
+              class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              図書館利用のお願い 🤫
+            </h2>
+            <p
+              class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4"
+            >
+              図書館は多くの人が利用する共有スペースです。以下の点にご協力をお願いいたします。
+            </p>
+            <div class="flex items-center gap-4 bg-[#121417] px-4 min-h-14">
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-10"
+                data-icon="SpeakerSimpleSlash"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-xl">
+                  volume_off
+                </span>
+              </div>
+              <p
+                class="text-white text-base font-normal leading-normal flex-1 truncate"
+              >
+                大きな声での会話はご遠慮ください。グループワークを行う際は、周囲に配慮し、静かに進行しましょう。
+              </p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#121417] px-4 min-h-14">
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-10"
+                data-icon="Info"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-xl">
+                  info
+                </span>
+              </div>
+              <p
+                class="text-white text-base font-normal leading-normal flex-1 truncate"
+              >
+                ヘッドホン・イヤホンの利用を推奨します。音の出る機器を使用する際は、音量を最小限に抑えてください。
+              </p>
+            </div>
+
+            <h2
+              class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5"
+            >
+              参加方法 🚀
+            </h2>
+            <p
+              class="text-white text-base font-normal leading-normal pb-3 pt-1 px-4"
+            >
+              新しい図書館コミュニティに参加するには、以下のステップに従ってください：
+            </p>
+            <div class="flex items-center gap-4 bg-[#121417] px-4 min-h-14">
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-10"
+                data-icon="Download"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-xl">
+                  person_add
+                </span>
+              </div>
+              <p
+                class="text-white text-base font-normal leading-normal flex-1 truncate"
+              >
+                「プロフィールを設定する」ボタンをクリックして、ニックネームと学科・学年を登録してください。
+              </p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#121417] px-4 min-h-14">
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-10"
+                data-icon="Pencil"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-xl">
+                  description
+                </span>
+              </div>
+              <p
+                class="text-white text-base font-normal leading-normal flex-1 truncate"
+              >
+                図書館の利用ルールや、コミュニティでのマナーを確認し、同意してください。
+              </p>
+            </div>
+            <div class="flex items-center gap-4 bg-[#121417] px-4 min-h-14">
+              <div
+                class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-10"
+                data-icon="Upload"
+                data-size="24px"
+                data-weight="regular"
+              >
+                <span class="material-symbols-outlined text-white text-xl">
+                  waving_hand
+                </span>
+              </div>
+              <p
+                class="text-white text-base font-normal leading-normal flex-1 truncate"
+              >
+                さあ、図書館で新しい学びと交流を始めましょう！
+              </p>
+            </div>
+            <div class="flex px-4 py-3 justify-start">
+              <button
+                id="setProfileButtonTop"
+                class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#d2e2f3] text-[#121417] text-sm font-bold leading-normal tracking-[0.015em]"
+              >
+                <span class="truncate">プロフィールを設定する</span>
+              </button>
+            </div>
+
+            <div class="profile-section flex flex-col gap-4 p-4">
+              <h2
+                class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]"
+              >
+                あなたのプロフィール
+              </h2>
+              <div class="flex items-center gap-4">
+                <div
+                  class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-12"
+                >
+                  <span class="material-symbols-outlined text-white text-3xl">
+                    person
+                  </span>
+                </div>
+                <div class="flex flex-col justify-center">
+                  <p
+                    class="text-white text-base font-medium leading-normal"
+                    id="myProfileNickname"
+                  >
+                    ニックネーム: 未設定
+                  </p>
+                  <p
+                    class="text-[#a1abb5] text-sm font-normal leading-normal"
+                    id="myProfileAffiliation"
+                  >
+                    学科・学年: 未設定
+                  </p>
+                </div>
+              </div>
+              <button
+                id="setProfileButtonBottom"
+                class="flex min-w-[84px] max-w-[200px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#2b3036] text-white text-sm font-bold leading-normal tracking-[0.015em] mt-2"
+              >
+                <span class="truncate">プロフィールを設定する</span>
+              </button>
+            </div>
+
+            <div class="news-admin-section flex flex-col gap-4 p-4">
+              <h2
+                class="text-white text-[22px] font-bold leading-tight tracking-[-0.015em]"
+              >
+                募集情報を投稿 📢
+              </h2>
+              <div class="flex flex-col gap-2">
+                <!-- ▼▼ ジャンル選択修正 ▼▼ -->
+                <label
+                  for="newsGenre"
+                  class="block text-white text-sm font-medium mb-1"
+                  >ジャンル</label
+                >
+                <select
+                  id="newsGenre"
+                  class="w-full rounded-md border border-[#2b3036] bg-[#121417] px-3 py-2 text-white focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                >
+                  <option value="">ジャンルを選択してください</option>
+                  <option value="本のリクエスト">本のリクエスト</option>
+                  <option value="広告掲示">広告掲示</option>
+                  <option value="ボードゲーム">ボードゲーム</option>
+                  <option value="グループワーク">グループワーク</option>
+                  <option value="その他">その他</option>
+                </select>
+                <!-- ▲▲ ジャンル選択修正 ▲▲ -->
+                <input
+                  type="text"
+                  placeholder="（例）『○○入荷希望』や『○○の広告掲示募集』など"
+                  class="w-full rounded-md border border-[#2b3036] bg-[#121417] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                  id="newsTitleInput"
+                />
+                <!-- ▼▼ 本のリクエスト専用入力欄 ▼▼ -->
+                <div
+                  id="bookRequestFields"
+                  style="display: none"
+                  class="flex flex-col gap-2 mb-2"
+                >
+                  <input
+                    type="text"
+                    id="bookTitleInput"
+                    placeholder="作品名"
+                    class="w-full rounded-md border border-[#2b3036] bg-[#1a1e23] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                  />
+                  <input
+                    type="text"
+                    id="bookAuthorInput"
+                    placeholder="作者"
+                    class="w-full rounded-md border border-[#2b3036] bg-[#1a1e23] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                  />
+                  <input
+                    type="text"
+                    id="bookPublisherInput"
+                    placeholder="出版社"
+                    class="w-full rounded-md border border-[#2b3036] bg-[#1a1e23] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                  />
+                </div>
+                <!-- ▲▲ 本のリクエスト専用入力欄 ▲▲ -->
+                <div
+                  id="genreExample"
+                  class="text-xs text-[#a1abb5] mb-1"
+                ></div>
+                <textarea
+                  placeholder=""
+                  rows="3"
+                  class="w-full rounded-md border border-[#2b3036] bg-[#121417] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                  id="newsContentInput"
+                ></textarea>
+                <div class="flex gap-4" id="datetimeInputArea">
+                  <div class="flex-1">
+                    <label
+                      for="newsDateTime"
+                      class="block text-white text-sm font-medium mb-1"
+                      >募集日時</label
+                    >
+                    <input
+                      type="datetime-local"
+                      class="w-full rounded-md border border-[#2b3036] bg-[#121417] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                      id="newsDateTime"
+                    />
+                  </div>
+                  <div class="flex-1">
+                    <label
+                      for="newsEndTime"
+                      class="block text-white text-sm font-medium mb-1"
+                      >終了時刻（任意）</label
+                    >
+                    <input
+                      type="time"
+                      class="w-full rounded-md border border-[#2b3036] bg-[#121417] px-3 py-2 text-white placeholder-[#a1abb5] focus:outline-none focus:ring-2 focus:ring-[#d2e2f3]"
+                      id="newsEndTime"
+                      placeholder="--:--"
+                    />
+                  </div>
+                </div>
+                <button
+                  id="postNewsButton"
+                  class="flex min-w-[84px] max-w-[150px] cursor-pointer items-center justify-center overflow-hidden rounded-full h-10 px-4 bg-[#d2e2f3] text-[#121417] text-sm font-bold leading-normal tracking-[0.015em] self-end"
+                >
+                  <span class="truncate">募集情報を投稿</span>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      // ページが読み込まれたときに実行される処理
+      document.addEventListener('DOMContentLoaded', () => {
+        loadProfile();
+        loadNews(); // ページ読み込み時に新着情報をロード
+
+        // サイドバー関連の要素を取得
+        const sidebar = document.getElementById('sidebar');
+        const sidebarOverlay = document.getElementById('sidebarOverlay');
+        const openSidebarButton = document.getElementById('openSidebarButton');
+        const closeSidebarButton =
+          document.getElementById('closeSidebarButton');
+
+        // サイドバーを開く関数
+        function openSidebar() {
+          sidebar.classList.add('open');
+          sidebarOverlay.classList.add('open');
+        }
+
+        // サイドバーを閉じる関数
+        function closeSidebar() {
+          sidebar.classList.remove('open');
+          sidebarOverlay.classList.remove('open');
+        }
+
+        // イベントリスナーの設定
+        openSidebarButton.addEventListener('click', openSidebar);
+        closeSidebarButton.addEventListener('click', closeSidebar);
+        sidebarOverlay.addEventListener('click', closeSidebar); // オーバーレイをクリックで閉じる
+
+        // ジャンルフィルタボタンを追加
+        const genreList = [
+          { value: '', label: 'すべて' },
+          { value: '本のリクエスト', label: '本のリクエスト' },
+          { value: '広告掲示', label: '広告掲示' },
+          { value: 'ボードゲーム', label: 'ボードゲーム' },
+          { value: 'グループワーク', label: 'グループワーク' },
+          { value: 'その他', label: 'その他' }
+        ];
+        const filterArea = document.createElement('div');
+        filterArea.className = 'flex gap-2 pb-2 px-4';
+        genreList.forEach(g => {
+          const btn = document.createElement('button');
+          btn.textContent = g.label;
+          btn.className =
+            'px-3 py-1 rounded-full text-xs font-bold ' +
+            (g.value === ''
+              ? 'bg-blue-600 text-white'
+              : 'bg-[#2b3036] text-white') +
+            ' hover:bg-blue-700 transition';
+          btn.onclick = () => {
+            // ボタンのスタイル切り替え
+            filterArea.querySelectorAll('button').forEach(b => {
+              b.classList.remove('bg-blue-600', 'hover:bg-blue-700');
+              b.classList.add('bg-[#2b3036]');
+            });
+            btn.classList.remove('bg-[#2b3036]');
+            btn.classList.add('bg-blue-600', 'hover:bg-blue-700');
+            renderNewsByGenre(g.value);
+          };
+          filterArea.appendChild(btn);
+        });
+        // newsDisplayAreaの前に追加
+        const newsDisplayArea = document.getElementById('newsDisplayArea');
+        newsDisplayArea.parentNode.insertBefore(filterArea, newsDisplayArea);
+
+        // 初期表示
+        loadProfile();
+        renderNewsByGenre('');
+      });
+
+      // プロフィールを保存・表示する関数
+      function saveProfile() {
+        const nickname = prompt('ニックネームを入力してください:');
+        const affiliation = prompt(
+          '学科・学年を入力してください (例: 工学部1年):'
+        );
+
+        if (
+          nickname !== null &&
+          nickname.trim() !== '' &&
+          affiliation !== null &&
+          affiliation.trim() !== ''
+        ) {
+          localStorage.setItem('userNickname', nickname);
+          localStorage.setItem('userAffiliation', affiliation);
+          updateProfileDisplay(nickname, affiliation);
+          alert('プロフィールが設定されたよ！😊');
+        } else {
+          alert('ニックネームと学科・学年を両方入力してね！');
+        }
+      }
+
+      // プロフィール表示を更新する関数
+      function updateProfileDisplay(nickname, affiliation) {
+        document.getElementById('userNickname').textContent = nickname;
+        document.getElementById('userAffiliation').textContent = affiliation;
+        document.getElementById(
+          'myProfileNickname'
+        ).textContent = `ニックネーム: ${nickname}`;
+        document.getElementById(
+          'myProfileAffiliation'
+        ).textContent = `学科・学年: ${affiliation}`;
+      }
+
+      // localStorageからプロフィールを読み込む関数
+      function loadProfile() {
+        const savedNickname = localStorage.getItem('userNickname');
+        const savedAffiliation = localStorage.getItem('userAffiliation');
+
+        if (savedNickname && savedAffiliation) {
+          updateProfileDisplay(savedNickname, savedAffiliation);
+        } else {
+          // 保存されたデータがない場合、デフォルトの表示に戻す
+          updateProfileDisplay('ゲスト', '学科・学年未設定');
+        }
+      }
+
+      // 募集情報を投稿する関数
+      function postNews() {
+        const newsGenreInput = document.getElementById('newsGenre');
+        const newsTitleInput = document.getElementById('newsTitleInput');
+        const newsContentInput = document.getElementById('newsContentInput');
+        const newsDateTimeInput = document.getElementById('newsDateTime');
+        const newsEndTimeInput = document.getElementById('newsEndTime');
+        const bookTitleInput = document.getElementById('bookTitleInput');
+        const bookAuthorInput = document.getElementById('bookAuthorInput');
+        const bookPublisherInput =
+          document.getElementById('bookPublisherInput');
+
+        const genre = newsGenreInput.value;
+        const title = newsTitleInput.value.trim();
+        let content = newsContentInput.value.trim();
+
+        let date = '';
+        let startTime = '';
+        let endTime = '';
+
+        // 本のリクエスト専用入力
+        if (genre === '本のリクエスト') {
+          const bookTitle = bookTitleInput.value.trim();
+          const bookAuthor = bookAuthorInput.value.trim();
+          const bookPublisher = bookPublisherInput.value.trim();
+          if (!bookTitle || !bookAuthor || !bookPublisher) {
+            alert('作品名・作者・出版社をすべて入力してください。');
+            return;
+          }
+          content = `作品名: ${bookTitle}\n作者: ${bookAuthor}\n出版社: ${bookPublisher}`;
+        }
+
+        // 広告掲示・本のリクエスト以外は日時入力必須
+        if (genre !== '広告掲示' && genre !== '本のリクエスト') {
+          const dateTime = newsDateTimeInput.value;
+          endTime = newsEndTimeInput.value;
+          if (dateTime === '') {
+            alert('募集日時を入力してね！');
+            return;
+          }
+          [date, startTime] = dateTime.split('T');
+          if (endTime && startTime >= endTime) {
+            alert('終了時刻は開始時刻より後に設定してね！');
+            return;
+          }
+        }
+
+        if (!genre) {
+          alert('ジャンルを選択してください！');
+          return;
+        }
+        if (title === '' || content === '') {
+          alert('募集タイトルと内容を両方入力してね！');
+          return;
+        }
+
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = (now.getMonth() + 1).toString().padStart(2, '0');
+        const day = now.getDate().toString().padStart(2, '0');
+        const postTimestamp = `${year}/${month}/${day}`;
+
+        // 募集情報をlocalStorageに保存
+        let news = JSON.parse(localStorage.getItem('newsData')) || [];
+        news.unshift({
+          genre,
+          title,
+          content,
+          date,
+          startTime,
+          endTime,
+          postTimestamp,
+          comments: []
+        });
+        localStorage.setItem('newsData', JSON.stringify(news));
+
+        renderNewsByGenre(currentGenreFilter);
+
+        // 入力欄をクリア
+        newsGenreInput.value = '';
+        newsTitleInput.value = '';
+        newsContentInput.value = '';
+        newsDateTimeInput.value = '';
+        newsEndTimeInput.value = '';
+        if (bookTitleInput) bookTitleInput.value = '';
+        if (bookAuthorInput) bookAuthorInput.value = '';
+        if (bookPublisherInput) bookPublisherInput.value = '';
+
+        alert('募集情報が投稿されたよ！📢');
+      }
+
+      // 募集情報を表示エリアに追加する関数
+      function addNewsToDisplay(
+        genre,
+        title,
+        content,
+        date,
+        startTime,
+        endTime,
+        postTimestamp,
+        comments
+      ) {
+        const newsDisplayArea = document.getElementById('newsDisplayArea');
+
+        // ヘッダーがまだなければ追加（初回のみ）
+        let newsHeader = document.getElementById('newsHeader');
+        if (!newsHeader) {
+          newsHeader = document.createElement('h2');
+          newsHeader.id = 'newsHeader';
+          newsHeader.className =
+            'text-white text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5';
+          newsHeader.textContent = '募集情報 🔔';
+          newsDisplayArea.prepend(newsHeader);
+        }
+
+        // 募集情報アイテムのコンテナ
+        const newsItemDiv = document.createElement('div');
+        newsItemDiv.className =
+          'flex flex-col gap-2 bg-[#121417] px-4 py-3 news-item-display';
+
+        // 日時表示
+        let periodText = '';
+        if (date && startTime) {
+          periodText = `<p class="text-xs text-[#a1abb5] mt-1">日時: ${date} ${startTime}`;
+          if (endTime) {
+            periodText += `〜${endTime}`;
+          }
+          periodText += `</p>`;
+        }
+
+        // ▼▼ 本のリクエスト・広告掲示の入荷/掲載状況表示（localStorageの最新値を参照） ▼▼
+        let statusText = '';
+        let news = JSON.parse(localStorage.getItem('newsData')) || [];
+        let item = news.find(
+          n =>
+            n.genre === genre &&
+            n.title === title &&
+            n.postTimestamp === postTimestamp
+        );
+        let bookStatus = item && item.bookStatus ? item.bookStatus : '未入荷';
+        let adStatus = item && item.adStatus ? item.adStatus : '未掲載';
+        if (genre === '本のリクエスト') {
+          statusText = `<div class="text-xs text-[#a1abb5] mt-1">📚 <span class="font-bold text-blue-300">入荷状況：</span><span id="bookStatus-${postTimestamp}-${title}">${bookStatus}</span></div>`;
+        } else if (genre === '広告掲示') {
+          statusText = `<div class="text-xs text-[#a1abb5] mt-1">📰 <span class="font-bold text-blue-300">掲載状況：</span><span id="adStatus-${postTimestamp}-${title}">${adStatus}</span></div>`;
+        }
+
+        // プロフィールのニックネーム取得
+        const nickname = localStorage.getItem('userNickname') || 'ゲスト';
+
+        // ▼▼ 折りたたみ用ID生成 ▼▼
+        const commentFoldId = `commentFoldArea-${postTimestamp}-${title}`;
+        const commentToggleBtnId = `commentToggleBtn-${postTimestamp}-${title}`;
+
+        // コメント削除ボタン付きHTML生成（デザイン統一: flex, gap, ボタン色等）
+        let commentsHtml = '';
+        if (comments && comments.length > 0) {
+          commentsHtml = comments
+            .map(
+              (c, cidx) =>
+                `<div class="flex items-center gap-2 bg-[#2b3036] rounded p-2">
+              <span class="text-xs text-[#a1abb5]">${c.nickname}：</span>
+              <span class="text-white text-sm break-all">${c.text}</span>
+              ${
+                canDeleteComment(nickname, c.nickname)
+                  ? `<button class="ml-2 px-2 py-0.5 rounded bg-red-600 text-xs text-white hover:bg-red-700 transition" onclick="deleteComment('${postTimestamp}','${title}',${cidx})">削除</button>`
+                  : ''
+              }
+            </div>`
+            )
+            .join('');
+        } else {
+          commentsHtml =
+            '<div class="text-[#a1abb5] text-xs">まだコメントはありません。</div>';
+        }
+
+        newsItemDiv.innerHTML = `
+          <div class="flex gap-4">
+            <div class="text-white flex items-center justify-center rounded-lg bg-[#2b3036] shrink-0 size-12">
+              <span class="material-symbols-outlined text-white text-3xl">
+                campaign
+              </span>
+            </div>
+            <div class="flex flex-1 flex-col justify-center">
+              <div class="mb-1 flex items-center">
+                <span class="inline-block bg-blue-700 text-white text-xs font-bold rounded px-2 py-0.5 mr-2">${genre}</span>
+                <span class="text-white text-base font-medium leading-normal break-all">${title}</span>
+              </div>
+              <p class="text-[#a1abb5] text-sm font-normal leading-normal break-all">${content.replace(
+                /\n/g,
+                '<br>'
+              )}</p>
+              ${periodText}
+              ${statusText}
+              <p class="text-xs text-[#a1abb5] text-right mt-2">投稿日: ${postTimestamp}</p>
+            </div>
+          </div>
+          <div class="mt-2">
+            <div class="flex items-center mb-1">
+              <h3 class="text-white text-sm font-bold">コメント</h3>
+              <button id="${commentToggleBtnId}" onclick="toggleCommentFold('${commentFoldId}', '${commentToggleBtnId}')" class="ml-2 px-2 py-0.5 rounded bg-[#2b3036] text-xs text-[#a1abb5] border border-[#444] hover:bg-[#3a414a] transition">▼</button>
+            </div>
+            <div id="${commentFoldId}" style="display:none;">
+              <div class="text-xs text-[#a1abb5] mb-1">あなたのニックネーム: ${nickname}</div>
+              <div class="flex flex-col gap-2 mb-2" id="commentsArea-${postTimestamp}-${title}">
+                ${commentsHtml}
+              </div>
+              <div class="flex gap-2">
+                <textarea placeholder="コメントを入力..." rows="1" class="rounded-md bg-[#2b3036] text-white px-2 py-1 text-xs flex-1 resize-none" id="commentInput-${postTimestamp}-${title}"></textarea>
+                <button class="bg-[#d2e2f3] text-[#121417] rounded-md px-2 py-1 text-xs font-bold hover:bg-[#b6cbe0] transition" onclick="addComment('${postTimestamp}','${title}')">送信</button>
+              </div>
+            </div>
+          </div>
+        `;
+
+        // ヘッダーの直後に追加
+        if (newsHeader && newsHeader.nextSibling) {
+          newsDisplayArea.insertBefore(newsItemDiv, newsHeader.nextSibling);
+        } else if (newsHeader) {
+          newsDisplayArea.appendChild(newsItemDiv);
+        } else {
+          newsDisplayArea.appendChild(newsItemDiv);
+        }
+      }
+
+      // コメント削除権限: 自分のコメント or 管理者（管理者判定は必要に応じて拡張）
+      function canDeleteComment(currentNickname, commentNickname) {
+        // 管理者判定はここで拡張可能
+        // 管理者なら全て削除可、一般ユーザーは自分のコメントのみ
+        // 例: 管理者判定 localStorage.getItem('userRole') === 'admin'
+        return (
+          currentNickname === commentNickname ||
+          localStorage.getItem('userRole') === 'admin'
+        );
+      }
+
+      // コメント削除
+      window.deleteComment = function (postTimestamp, title, commentIdx) {
+        if (!confirm('このコメントを削除しますか？')) return;
+        let news = JSON.parse(localStorage.getItem('newsData')) || [];
+        // 募集内容・ジャンル問わず全てのnewsから探す
+        const idx = news.findIndex(
+          item => item.postTimestamp === postTimestamp && item.title === title
+        );
+        if (idx !== -1 && Array.isArray(news[idx].comments)) {
+          news[idx].comments.splice(commentIdx, 1);
+          localStorage.setItem('newsData', JSON.stringify(news));
+          renderNewsByGenre(currentGenreFilter);
+        }
+      };
+
+      // ▼▼ 折りたたみトグル関数 ▼▼
+      window.toggleFold = function (id) {
+        const el = document.getElementById(id);
+        if (el) {
+          el.style.display =
+            el.style.display === 'none' || el.style.display === ''
+              ? 'block'
+              : 'none';
+        }
+      };
+
+      // ▼▼ コメントのみ折りたたみトグル関数 ▼▼
+      window.toggleCommentFold = function (id, btnId) {
+        const el = document.getElementById(id);
+        const btn = document.getElementById(btnId);
+        if (el) {
+          const isOpen = el.style.display === 'block';
+          el.style.display = isOpen ? 'none' : 'block';
+          if (btn) btn.textContent = isOpen ? '▼' : '▲';
+        }
+      };
+
+      // localStorageから募集情報をロードする関数
+      function loadNews() {
+        renderNewsByGenre(currentGenreFilter);
+      }
+
+      // ▼▼ ジャンルで絞り込み表示 ▼▼
+      let currentGenreFilter = '';
+
+      function renderNewsByGenre(genre) {
+        currentGenreFilter = genre;
+        const newsDisplayArea = document.getElementById('newsDisplayArea');
+        newsDisplayArea.innerHTML = '';
+
+        // ▼▼ 掲載順を逆（古いものが上・新しいものが下）にする ▼▼
+        const news = (JSON.parse(localStorage.getItem('newsData')) || [])
+          .filter(item => !genre || item.genre === genre)
+          .slice()
+          .reverse();
+
+        let hasActiveNews = false;
+
+        // ▼▼ 2件まで表示、以降はスクロール ▼▼
+        news.slice(0, 2).forEach(item => {
+          addNewsToDisplay(
+            item.genre || '',
+            item.title,
+            item.content,
+            item.date,
+            item.startTime,
+            item.endTime,
+            item.postTimestamp,
+            item.comments || []
+          );
+          hasActiveNews = true;
+        });
+
+        // ▼▼ 2件より多い場合は残りも表示（スクロールで見える） ▼▼
+        news.slice(2).forEach(item => {
+          addNewsToDisplay(
+            item.genre || '',
+            item.title,
+            item.content,
+            item.date,
+            item.startTime,
+            item.endTime,
+            item.postTimestamp,
+            item.comments || []
+          );
+        });
+
+        if (!hasActiveNews && document.getElementById('newsHeader')) {
+          document.getElementById('newsHeader').remove();
+        }
+      }
+
+      // 募集情報ごとのコメント追加
+      window.addComment = function (postTimestamp, title) {
+        const nickname = localStorage.getItem('userNickname') || 'ゲスト';
+        const commentInput = document.getElementById(
+          `commentInput-${postTimestamp}-${title}`
+        );
+        const commentsArea = document.getElementById(
+          `commentsArea-${postTimestamp}-${title}`
+        );
+
+        const text = commentInput.value.trim();
+
+        if (!text) {
+          alert('コメントを入力してね！');
+          return;
+        }
+
+        // localStorageから該当の募集情報を探してコメントを追加
+        let news = JSON.parse(localStorage.getItem('newsData')) || [];
+        const idx = news.findIndex(
+          item => item.postTimestamp === postTimestamp && item.title === title
+        );
+        if (idx !== -1) {
+          if (!news[idx].comments) news[idx].comments = [];
+          news[idx].comments.push({ nickname, text });
+          localStorage.setItem('newsData', JSON.stringify(news));
+        }
+
+        // コメント欄を再描画
+        commentsArea.innerHTML += `
+          <div class="bg-[#2b3036] rounded p-2">
+            <span class="text-xs text-[#a1abb5]">${nickname}：</span>
+            <span class="text-white text-sm">${text}</span>
+          </div>
+        `;
+        commentInput.value = '';
+      };
+
+      // イベントリスナーの設定
+      document
+        .getElementById('setProfileButtonTop')
+        .addEventListener('click', saveProfile);
+      document
+        .getElementById('setProfileButtonBottom')
+        .addEventListener('click', saveProfile);
+      document
+        .getElementById('postNewsButton')
+        .addEventListener('click', postNews);
+
+      // ▼▼ ジャンルごとの例文 ▼▼
+      const genreExamples = {
+        本のリクエスト: '（例）○○という本を図書館に入れてほしいです。',
+        広告掲示: '（例）イベントのポスター掲示を希望します。',
+        ボードゲーム: '（例）○月○日にボードゲーム会を開催します。参加者募集！',
+        グループワーク:
+          '（例）グループ学習スペースを○時から利用したい方を募集します。',
+        その他: '（例）図書館で○○をやりたい方いませんか？'
+      };
+
+      document.addEventListener('DOMContentLoaded', () => {
+        // ジャンル選択時に例文を表示＋日時入力欄の表示制御
+        const newsGenreInput = document.getElementById('newsGenre');
+        const genreExampleDiv = document.getElementById('genreExample');
+        const newsContentInput = document.getElementById('newsContentInput');
+        const datetimeInputArea = document.getElementById('datetimeInputArea');
+        const bookRequestFields = document.getElementById('bookRequestFields');
+        newsGenreInput.addEventListener('change', function () {
+          const val = newsGenreInput.value;
+          if (genreExamples[val]) {
+            genreExampleDiv.textContent = genreExamples[val];
+            newsContentInput.placeholder = genreExamples[val];
+          } else {
+            genreExampleDiv.textContent = '';
+            newsContentInput.placeholder = '';
+          }
+          // 広告掲示・本のリクエストは日時入力を非表示
+          if (val === '広告掲示' || val === '本のリクエスト') {
+            datetimeInputArea.style.display = 'none';
+          } else {
+            datetimeInputArea.style.display = 'flex';
+          }
+          // 本のリクエスト専用入力欄の表示制御
+          if (val === '本のリクエスト') {
+            bookRequestFields.style.display = 'flex';
+            newsContentInput.style.display = 'none';
+          } else {
+            bookRequestFields.style.display = 'none';
+            newsContentInput.style.display = 'block';
+          }
+        });
+        datetimeInputArea.style.display = 'flex';
+      });
+
+      // ▼▼ 他タブ・管理画面からの状況変更を即時反映 ▼▼
+      window.addEventListener('storage', function (e) {
+        if (e.key === 'newsData' || e.key === 'newsData_update') {
+          renderNewsByGenre(currentGenreFilter);
+        }
+      });
+    </script>
+  </body>
+</html>
