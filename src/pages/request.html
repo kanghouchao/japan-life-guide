@@ -689,6 +689,38 @@
         // 初期表示
         loadProfile();
         renderNewsByGenre('');
+
+        // ジャンル選択時に例文を表示＋日時入力欄の表示制御
+        const newsGenreInput = document.getElementById('newsGenre');
+        const genreExampleDiv = document.getElementById('genreExample');
+        const newsContentInput = document.getElementById('newsContentInput');
+        const datetimeInputArea = document.getElementById('datetimeInputArea');
+        const bookRequestFields = document.getElementById('bookRequestFields');
+        newsGenreInput.addEventListener('change', function () {
+          const val = newsGenreInput.value;
+          if (genreExamples[val]) {
+            genreExampleDiv.textContent = genreExamples[val];
+            newsContentInput.placeholder = genreExamples[val];
+          } else {
+            genreExampleDiv.textContent = '';
+            newsContentInput.placeholder = '';
+          }
+          // 広告掲示・本のリクエストは日時入力を非表示
+          if (val === '広告掲示' || val === '本のリクエスト') {
+            datetimeInputArea.style.display = 'none';
+          } else {
+            datetimeInputArea.style.display = 'flex';
+          }
+          // 本のリクエスト専用入力欄の表示制御
+          if (val === '本のリクエスト') {
+            bookRequestFields.style.display = 'flex';
+            newsContentInput.style.display = 'none';
+          } else {
+            bookRequestFields.style.display = 'none';
+            newsContentInput.style.display = 'block';
+          }
+        });
+        datetimeInputArea.style.display = 'flex';
       });
 
       // プロフィールを保存・表示する関数
@@ -1125,39 +1157,7 @@
         その他: '（例）図書館で○○をやりたい方いませんか？'
       };
 
-      document.addEventListener('DOMContentLoaded', () => {
-        // ジャンル選択時に例文を表示＋日時入力欄の表示制御
-        const newsGenreInput = document.getElementById('newsGenre');
-        const genreExampleDiv = document.getElementById('genreExample');
-        const newsContentInput = document.getElementById('newsContentInput');
-        const datetimeInputArea = document.getElementById('datetimeInputArea');
-        const bookRequestFields = document.getElementById('bookRequestFields');
-        newsGenreInput.addEventListener('change', function () {
-          const val = newsGenreInput.value;
-          if (genreExamples[val]) {
-            genreExampleDiv.textContent = genreExamples[val];
-            newsContentInput.placeholder = genreExamples[val];
-          } else {
-            genreExampleDiv.textContent = '';
-            newsContentInput.placeholder = '';
-          }
-          // 広告掲示・本のリクエストは日時入力を非表示
-          if (val === '広告掲示' || val === '本のリクエスト') {
-            datetimeInputArea.style.display = 'none';
-          } else {
-            datetimeInputArea.style.display = 'flex';
-          }
-          // 本のリクエスト専用入力欄の表示制御
-          if (val === '本のリクエスト') {
-            bookRequestFields.style.display = 'flex';
-            newsContentInput.style.display = 'none';
-          } else {
-            bookRequestFields.style.display = 'none';
-            newsContentInput.style.display = 'block';
-          }
-        });
-        datetimeInputArea.style.display = 'flex';
-      });
+      
 
       // ▼▼ 他タブ・管理画面からの状況変更を即時反映 ▼▼
       window.addEventListener('storage', function (e) {
