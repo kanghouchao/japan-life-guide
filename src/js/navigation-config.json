@@ -13,7 +13,7 @@
             "i18nKey": "nav.chinese_culture",
             "order": 2
         },
-        "syria_culture": {
+        "shiria": {
             "href": "./pages/shiria.html",
             "hrefFromPages": "./shiria.html",
             "i18nKey": "nav.syria_culture",

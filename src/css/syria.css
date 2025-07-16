@@ -124,6 +124,10 @@ body {
   padding: 40px; /* Inner padding for sections */
   border-radius: 15px; /* Rounded corners for sections */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle section shadow */
+  animation: fadeIn-on-scroll linear;
+  animation-timeline: view();
+  animation-range-start: entry 10%;
+  animation-range-end: cover 20%;
 }
 
 /* Specific section backgrounds (harmonized) */
