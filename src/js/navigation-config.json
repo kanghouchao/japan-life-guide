@@ -23,7 +23,7 @@
             "href": "./pages/request.html",
             "hrefFromPages": "./request.html",
             "i18nKey": "nav.request",
-            "order": 3
+            "order": 4
         }
     }
 }
