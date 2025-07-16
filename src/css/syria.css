@@ -113,21 +113,42 @@ body {
   padding: 120px 20px; /* More padding */
 }
 
+/* Animation for content sections */
+@keyframes fadeIn-on-scroll {
+  from {
+    opacity: 0;
+    transform: translateY(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 .content-section {
   display: flex;
   align-items: center;
   margin-bottom: 120px; /* More margin */
   gap: 80px; /* More gap */
-  opacity: 0;
-  transform: translateY(50px); /* More pronounced slide */
-  transition: opacity 1s ease-out, transform 1s ease-out;
   padding: 40px; /* Inner padding for sections */
   border-radius: 15px; /* Rounded corners for sections */
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08); /* Subtle section shadow */
-  animation: fadeIn-on-scroll linear;
-  animation-timeline: view();
-  animation-range-start: entry 10%;
-  animation-range-end: cover 20%;
+
+  /* Default state for browsers that don't support the animation timeline */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+
+  /* Feature detection for animation-timeline */
+  @supports (animation-timeline: view()) {
+    animation: fadeIn-on-scroll linear;
+    animation-timeline: view();
+    animation-range-start: entry 10%;
+    animation-range-end: cover 20%;
+    /* Reset opacity and transform for animation to take over */
+    opacity: 0;
+    transform: translateY(50px);
+  }
 }
 
 /* Specific section backgrounds (harmonized) */
