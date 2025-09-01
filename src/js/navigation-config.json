@@ -13,42 +13,13 @@
             "i18nKey": "nav.chinese_culture",
             "order": 2
         },
-        "communication_culture": {
-            "href": "./pages/communication-culture.html",
-            "hrefFromPages": "./communication-culture.html",
-            "i18nKey": "nav.communication_culture",
+        "cultural_crossing": {
+            "href": "./pages/cultural-crossing.html",
+            "hrefFromPages": "./cultural-crossing.html",
+            "i18nKey": "nav.cultural_crossing",
             "order": 7
         },
         "shiria": {
-            "href": "./pages/shiria.html",
-            "hrefFromPages": "./shiria.html",
-            "i18nKey": "nav.syria_culture",
-            "order": 3
-        },
-        "request": {
-            "href": "./pages/request.html",
-            "hrefFromPages": "./request.html",
-            "i18nKey": "nav.request",
-            "order": 4
-        }
-    }
-}
-{
-    "navigation": {
-        "home": {
-            "href": "./index.html",
-            "hrefFromPages": "../index.html",
-            "i18nKey": "nav.home",
-            "order": 1,
-            "isHome": true
-        },
-        "chinese_culture": {
-            "href": "./pages/chinese-culture.html",
-            "hrefFromPages": "./chinese-culture.html",
-            "i18nKey": "nav.chinese_culture",
-            "order": 2
-        },
-        "syria_culture": {
             "href": "./pages/shiria.html",
             "hrefFromPages": "./shiria.html",
             "i18nKey": "nav.syria_culture",
