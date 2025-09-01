@@ -7,29 +7,35 @@
             "order": 1,
             "isHome": true
         },
+        "shiria": {
+            "href": "./pages/shiria.html",
+            "hrefFromPages": "./shiria.html",
+            "i18nKey": "nav.syria_culture",
+            "order": 2
+        },
         "chinese_culture": {
             "href": "./pages/chinese-culture.html",
             "hrefFromPages": "./chinese-culture.html",
             "i18nKey": "nav.chinese_culture",
-            "order": 2
+            "order": 3
+        },
+        "mongolia_culture": {
+            "href": "./pages/mongolia.html",
+            "hrefFromPages": "./mongolia.html",
+            "i18nKey": "nav.mongolia_culture",
+            "order": 4
         },
         "cultural_crossing": {
             "href": "./pages/cultural-crossing.html",
             "hrefFromPages": "./cultural-crossing.html",
             "i18nKey": "nav.cultural_crossing",
-            "order": 7
-        },
-        "shiria": {
-            "href": "./pages/shiria.html",
-            "hrefFromPages": "./shiria.html",
-            "i18nKey": "nav.syria_culture",
-            "order": 3
+            "order": 5
         },
         "request": {
             "href": "./pages/request.html",
             "hrefFromPages": "./request.html",
             "i18nKey": "nav.request",
-            "order": 4
+            "order": 6
         }
     }
 }
