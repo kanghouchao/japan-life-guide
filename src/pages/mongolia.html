@@ -1,0 +1,1167 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Монголын Соёл Уламжлал</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Noto+Sans+Mongolian&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: #444;
+        }
+        
+        .mongolian-font {
+            font-family: 'Noto Sans Mongolian', sans-serif;
+        }
+        
+        .hero-image {
+             background-image: url("../images/mongolia/cover2.jpg");
+             width: 100%;
+             height: 80vh;
+             background-size: cover;
+             background-repeat: no-repeat;
+             background-position: center;
+        }
+        .hero-text {
+            font-size: 3em;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            color: white;
+        }
+        img{
+            max-width: 100%;
+            height: auto;
+        }
+        
+        .culture-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        .food-card {
+            transition: all 0.3s ease;
+        }
+        
+        .food-card:hover {
+            transform: scale(1.05);
+        }
+        
+        .animate-float {
+            animation: float 3s ease-in-out infinite;
+        }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px; /* элемент хооронд зай */
+        }
+
+        .container > .box {
+            flex: 1 1 45%; /* том дэлгэцэд 2 багана, жижигд доороос шилжинэ */
+            min-width: 300px; /* маш жижиг дэлгэцэд доороос шилжих */
+        }
+         @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i class="fas fa-horse-head text-2xl text-yellow-700 mr-2"></i>
+                        <span class="text-xl font-bold text-gray-800 mongolian-font" 
+                        data-key="country name" 
+                        data-mn="МОНГОЛ УЛС" 
+                        data-en="MONGOLIA"
+                        data-jp="モンゴル国"
+                        data-zh="蒙古国"> 
+                        >МОНГОЛ УЛС
+                    </span>
+                    </div>
+<!-- Language buttons -->
+        <!-- Language Switcher -->
+        <div class="text-right">
+            <button onclick="setLanguage('mn')" class="px-2 py-1 bg-gray-700 text-white rounded ">MN</button>
+            <button onclick="setLanguage('en')" class="px-2 py-1 bg-gray-700 text-white rounded">EN</button>
+            <button onclick="setLanguage('jp')" class="px-2 py-1 bg-gray-700 text-white rounded">JP</button>
+            <button onclick="setLanguage('zh')" class="px-2 py-1 bg-gray-700 text-white rounded">ZH</button>
+        </div>
+    </header>
+
+    <!-- Бусад хэсгүүд -->
+
+                </div>
+                <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="#tuh" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium"
+                    data-key="history-link"
+                    data-mn="ТҮҮХ"
+                    data-en="HISTORY"
+                    data-jp="歴史"
+                    data-zh="历史">
+                    ТҮҮХ
+                    </a>
+                    <a href="#naadam" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium"
+                    data-key="naadam-link" data-mn="НААДАМ" data-en="FESTIVAL" data-jp="お祭り" data-zh="節慶">НААДАМ</a>
+                    <a href="#culture" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium" 
+                    data-key="culture"
+                    data-mn="СОЁЛ"
+                    data-en="CULTURE"
+                    data-jp="文化"
+                    data-zh="文化"> 
+                    СОЁЛ</a>
+                    <a href="#foot" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium"
+                    data-key="foot-link"
+                    data-mn="ЦАГААН ИДЭЭ"
+                    data-en="DAIRY PRODUCTS"
+                    data-jp="乳製品"
+                    data-zh="乳制品">
+                    ЦАГААН ИДЭЭ</a>
+                    <a href="#nature" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium"
+                    data-key="nature-link" data-mn="БАЙГАЛЬ" data-en="NATURE" data-jp="自然" data-zh="自然"
+                    >БАЙГАЛЬ</a>
+                </div>
+                <div class="-mr-2 flex items-center md:hidden">
+                    <button type="button" class="inline-flex items-center justify-center p-2 rounded-md text-gray-800 hover:text-yellow-700 focus:outline-none" aria-controls="mobile-menu" aria-expanded="false" id="mobile-menu-button">
+                        <span class="sr-only">Open main menu</span>
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div class="hidden md:hidden" id="mobile-menu">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#tuh" class="text-gray-800 hover:text-yellow-700 block px-3 py-2 rounded-md text-base font-medium">ТҮҮХ</a>
+                <a href="#naadam" class="text-gray-800 hover:text-yellow-700 block px-3 py-2 rounded-md text-base font-medium">НААДАМ</a>
+                <a href="#culture" class="text-gray-800 hover:text-yellow-700 block px-3 py-2 rounded-md text-base font-medium">СОЁЛ</a>
+                <a href="#food" class="text-gray-800 hover:text-yellow-700 block px-3 py-2 rounded-md text-base font-medium">ЦАГААН ИДЭЭ</a>
+                <a href="#nature" class="text-gray-800 hover:text-yellow-700 block px-3 py-2 rounded-md text-base font-medium">БАЙГАЛЬ</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="hero-image flex items-center justify-center">
+        <div class="text-center px-4">
+            <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 mongolian-font"></h1>
+            <p class="text-xl md:text-2xl text-white mb-8"></p>
+            <a href="#explore" class="bg-yellow-700 hover:bg-yellow-800 text-white font-bold py-3 px-6 rounded-full text-lg transition duration-300"></a>
+        </div>
+    </div>
+
+   <!-- Introduction / Explore Section -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="explore">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 mongolian-font"
+                data-key="intro-title"
+                data-mn="МОНГОЛЫН ӨВ СОЁЛД ТАВТАЙ МОРИЛНО УУ"
+                data-en="WELCOME TO THE HERITAGE OF MONGOLIA"
+                data-jp="モンゴルの遺産へようこそ"
+                data-zh="欢迎来到蒙古的文化遗产">
+                МОНГОЛЫН ӨВ СОЁЛД ТАВТАЙ МОРИЛНО УУ
+            </h2>
+            <div class="w-24 h-1 bg-yellow-700 mx-auto"></div>
+        </div>
+        <div class="grid md:grid-cols-3 gap-8">
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-landmark text-4xl text-yellow-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-3 mongolian-font"
+                    data-key="history-title"
+                    data-mn="ТҮҮХ СОЁЛ"
+                    data-en="HISTORY & CULTURE"
+                    data-jp="歴史と文化"
+                    data-zh="历史与文化">
+                    ТҮҮХ СОЁЛ
+                </h3>
+                <p class="text-gray-600"
+                   data-key="history-text"
+                   data-mn="Монголын бахархал болсон эртний түүх, Чингис хааны алдар гавьяаг судлаарай."
+                   data-en="Explore the proud ancient history of Mongolia and the achievements of Genghis Khan."
+                   data-jp="モンゴルの誇る古代の歴史とチンギス・カンの偉業を探りましょう。"
+                   data-zh="探索蒙古引以为豪的古代历史以及成吉思汗的伟业。">
+                   Монголын бахархал болсон эртний түүх, Чингис хааны алдар гавьяаг судлаарай.
+                </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-horse text-4xl text-yellow-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-3 mongolian-font"
+                    data-key="nomad-title"
+                    data-mn="НҮҮДЭЛЧИД"
+                    data-en="NOMADS"
+                    data-jp="遊牧民"
+                    data-zh="游牧民族">
+                    НҮҮДЭЛЧИД
+                </h3>
+                <p class="text-gray-600"
+                   data-key="nomad-text"
+                   data-mn="Малчин ард түмний өвөрмөц амьдралын хэв маяг, гэр орноос танилцаарай."
+                   data-en="Discover the unique lifestyle and homes of Mongolian herders."
+                   data-jp="モンゴルの牧民の独特な生活様式や住まいを体験しましょう。"
+                   data-zh="了解蒙古牧民独特的生活方式和家庭。">
+                   Малчин ард түмний өвөрмөц амьдралын хэв маяг, гэр орноос танилцаарай.
+                </p>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg shadow-md text-center">
+                <i class="fas fa-mountain text-4xl text-yellow-700 mb-4"></i>
+                <h3 class="text-xl font-semibold mb-3 mongolian-font"
+                    data-key="nature-title"
+                    data-mn="БАЙГАЛЬ ДЭЛХИЙ"
+                    data-en="NATURE & LANDSCAPES"
+                    data-jp="自然と風景"
+                    data-zh="自然与风景">
+                    БАЙГАЛЬ ДЭЛХИЙ
+                </h3>
+                <p class="text-gray-600"
+                   data-key="nature-text"
+                   data-mn="Говь, хээр, тайга, нуур усны гайхамшигт үзэсгэлэнт газруудыг үзээрэй."
+                   data-en="Explore the stunning landscapes of Gobi, steppes, taiga, and lakes."
+                   data-jp="ゴビ砂漠、草原、タイガ、湖の壮大な景観を体験しましょう。"
+                   data-zh="探索戈壁、草原、针叶林和湖泊的壮丽景观。">
+                   Говь, хээр, тайга, нуур усны гайхамшигт үзэсгэлэнт газруудыг үзээрэй.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <!-- History Section -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100" id="tuh">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 mongolian-font"
+                data-key="history-title"
+                data-mn="МОНГОЛЫН ТҮҮХ"
+                data-en="HISTORY OF MONGOLIA"
+                data-jp="モンゴルの歴史"
+                data-zh="蒙古历史">
+                МОНГОЛЫН ТҮҮХ
+            </h2>
+            <div class="w-24 h-1 bg-yellow-700 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center">
+            <div>
+                <h3 class="text-2xl font-semibold mb-4 mongolian-font"
+                    data-key="chinggis-title"
+                    data-mn="ЧИНГИС ХААНЫ ЭЗЭНТ ГҮРЭН"
+                    data-en="THE EMPIRE OF GENGHIS KHAN"
+                    data-jp="チンギス・カンの帝国"
+                    data-zh="成吉思汗的帝国">
+                    ЧИНГИС ХААНЫ ЭЗЭНТ ГҮРЭН
+                </h3>
+                <p class="bg-yellow-100 text-gray-700 mb-4"
+                   data-key="chinggis-text1"
+                   data-mn="1206 онд Чингис хаан нэгдсэн Монгол Улсыг байгуулж, түүхэн дэх хамгийн том эзэнт гүрнүүдийн нэг болгосон, дэлхийн талын эзэлсэн хүн юм."
+                   data-en="In 1206, Genghis Khan unified Mongolia and created one of the largest empires in history, conquering vast lands."
+                   data-jp="1206年にチンギス・カンはモンゴルを統一し、歴史上最大の帝国の一つを築き、広大な領土を征服しました。"
+                   data-zh="1206年，成吉思汗统一蒙古，建立了历史上最大的帝国之一，占领了广阔的土地。">
+                   1206 онд Чингис хаан нэгдсэн Монгол Улсыг байгуулж, түүхэн дэх хамгийн том эзэнт гүрнүүдийн нэг болгосон, дэлхийн талын эзэлсэн хүн юм.
+                </p>
+                <p class="bg-yellow-100 mb-6"
+                   data-key="chinggis-text2"
+                   data-mn="Монголын эзэнт гүрэн нь Ази, Европ, Дорнодод хүрээлэгдсэн 33 сая км² газар нутагтай дэлхийн түүхэн дэх хамгийн том эзэнт гүрэн байв."
+                   data-en="The Mongol Empire covered 33 million km² across Asia, Europe, and the East, becoming the largest empire in world history."
+                   data-jp="モンゴル帝国はアジア、ヨーロッパ、東方にまたがる3300万平方キロを支配し、世界史上最大の帝国となりました。"
+                   data-zh="蒙古帝国横跨亚洲、欧洲和东方，面积达3300万平方公里，是世界历史上最大的帝国。">
+                   Монголын эзэнт гүрэн нь Ази, Европ, Дорнодод хүрээлэгдсэн 33 сая км² газар нутагтай дэлхийн түүхэн дэх хамгийн том эзэнт гүрэн байв.
+                </p>
+                <a href="#" class="inline-flex items-center text-yellow-700 font-semibold"
+                   data-key="more-link"
+                   data-mn="Дэлгэрэнгүй"
+                   data-en="Learn More"
+                   data-jp="もっと見る"
+                   data-zh="了解更多">
+                    Дэлгэрэнгүй
+                    <i class="fas fa-arrow-right ml-2"></i>
+                </a>
+            </div>
+
+            <div class="relative">
+                <img src="../images/mongolia/chingiskhan.jpg" alt="Chinggis Khaan" class="rounded-lg shadow-xl w-full h-auto">
+                <div class="absolute -bottom-4 -right-4 bg-yellow-700 text-white px-4 py-2 rounded-lg shadow-lg">
+                    <span class="mongolian-font"
+                          data-key="chinggis-name"
+                          data-mn="ЧИНГИС ХААН"
+                          data-en="GENGHIS KHAN"
+                          data-jp="チンギス・カン"
+                          data-zh="成吉思汗">
+                        ЧИНГИС ХААН
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-16 grid md:grid-cols-3 gap-6">
+            <div class="bg-white p-6 rounded-lg shadow-md culture-card transition duration-300">
+                <div class="text-yellow-700 text-3xl mb-4">
+                    <i class="fas fa-scroll"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 mongolian-font"
+                    data-key="script-title"
+                    data-mn="БИЧИГ ҮСЭГ"
+                    data-en="SCRIPT"
+                    data-jp="文字"
+                    data-zh="文字">
+                    БИЧИГ ҮСЭГ
+                </h4>
+                <p class="text-gray-600"
+                   data-key="script-text"
+                   data-mn="Монгол бичиг нь Уйгур үсгээс гаралтай бөгөөд босоо бичигтэй дэлхийд цөөхөн үсгийн төрлүүдийн нэг юм."
+                   data-en="The Mongolian script is derived from the Uighur alphabet and is one of the few vertical scripts in the world."
+                   data-jp="モンゴル文字はウイグル文字に由来し、世界で数少ない縦書き文字の一つです。"
+                   data-zh="蒙古文字起源于维吾尔字母，是世界上少数竖写文字之一。">
+                   Монгол бичиг нь Уйгур үсгээс гаралтай бөгөөд босоо бичигтэй дэлхийд цөөхөн үсгийн төрлүүдийн нэг юм.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md culture-card transition duration-300">
+                <div class="text-yellow-700 text-3xl mb-4">
+                    <i class="fas fa-praying-hands"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 mongolian-font"
+                    data-key="religion-title"
+                    data-mn="ШАШИН"
+                    data-en="RELIGION"
+                    data-jp="宗教"
+                    data-zh="宗教">
+                    ШАШИН
+                </h4>
+                <p class="text-gray-600"
+                   data-key="religion-text"
+                   data-mn="Монголчуудын шашин болон тэнгэрийн бурханд итгэх ёс нь Монголын соёлын чухал бүрэлдэхүүн хэсэг юм."
+                   data-en="The religious beliefs of Mongolians, including reverence for the sky god, are a key part of the culture."
+                   data-jp="モンゴル人の宗教信仰、特に天の神への信仰は文化の重要な要素です。"
+                   data-zh="蒙古人的宗教信仰，包括对天神的敬仰，是文化的重要组成部分。">
+                   Монголчуудын шашин болон тэнгэрийн бурханд итгэх ёс нь Монголын соёлын чухал бүрэлдэхүүн хэсэг юм.
+                </p>
+            </div>
+
+            <div class="bg-white p-6 rounded-lg shadow-md culture-card transition duration-300">
+                <div class="text-yellow-700 text-3xl mb-4">
+                    <i class="fas fa-chess-rook"></i>
+                </div>
+                <h4 class="text-xl font-semibold mb-3 mongolian-font"
+                    data-key="chess-title"
+                    data-mn="ШАТАР"
+                    data-en="CHESS"
+                    data-jp="チェス"
+                    data-zh="国际象棋">
+                    ШАТАР
+                </h4>
+                <p class="text-gray-600"
+                   data-key="chess-text"
+                   data-mn="Монгол шатар нь Монголын үндэсний тоглоом бөгөөд олон зууны турш хөгжиж ирсэн сэтгэхүйг хөгжүүлдэг тоглоом юм."
+                   data-en="Mongolian chess is a traditional game that has developed strategic thinking over centuries."
+                   data-jp="モンゴルチェスは何世紀にもわたって戦略的思考を育てる伝統的なゲームです。"
+                   data-zh="蒙古国际象棋是一种传统游戏，几百年来培养了战略思维。">
+                   Монгол шатар нь Монголын үндэсний тоглоом бөгөөд олон зууны турш хөгжиж ирсэн сэтгэхүйг хөгжүүлдэг тоглоом юм.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+    <!-- Naadam Festival -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="naadam">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 mongolian-font"
+                data-key="naadam-title"
+                data-mn="НААДАМЫН БАЯР"
+                data-en="NAADAM FESTIVAL"
+                data-jp="ナーダム祭"
+                data-zh="那达慕节">
+                НААДАМЫН БАЯР
+            </h2>
+            <img src="../images/mongolia/download.jpg" alt="" style="margin-left: auto; margin-right: auto;"> 
+            <div class="w-24 h-1 bg-yellow-700 mx-auto"></div>
+            <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto"
+               data-key="naadam-intro"
+               data-mn="Монголын Үндэсний Их Баяр Наадам нь жил бүрийн 7-р сарын 11,12,13-нд тохиодог бөгөөд эртнээс уламжилсан түүхэн ёслол, спортын наадам юм. Энэхүү баярт 'Бөх барилдаан', 'Морь уралдаан', 'Сумын харваа' гэсэн гурван үндсэн төрөл ордог бөгөөд түүх, соёл, нүүдэлчин ард түмний бахархлыг илэрхийлдэг. Наадам бол Монгол түмний эв нэгдэл, өв соёлоо бахархах агшин юм."
+               data-en="The Naadam Festival, Mongolia's National Holiday, takes place annually on July 11-13, featuring traditional ceremonies and sports competitions including wrestling, horse racing, and archery, showcasing the heritage and pride of nomadic people."
+               data-jp="モンゴルの国民的大祭ナーダム祭は毎年7月11日～13日に開催され、伝統儀式やスポーツ競技（レスリング、馬レース、アーチェリー）を通して遊牧民の文化と誇りを示します。"
+               data-zh="蒙古国的那达慕节每年7月11日至13日举行，包括摔跤、赛马和射箭等传统仪式和体育比赛，展示游牧民族的文化与自豪感。">
+               Монголын Үндэсний Их Баяр Наадам нь жил бүрийн 7-р сарын 11,12,13-нд тохиодог бөгөөд эртнээс уламжилсан түүхэн ёслол, спортын наадам юм...
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 mb-12">
+            <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                <img src="../images/mongolia/boh.jpg" alt="Wrestling" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 mongolian-font"
+                        data-key="wrestling-title"
+                        data-mn="БӨХ БАРИЛДААН"
+                        data-en="WRESTLING"
+                        data-jp="レスリング"
+                        data-zh="摔跤">
+                        БӨХ БАРИЛДААН
+                    </h3>
+                    <p class="text-gray-200"
+                       data-key="wrestling-text"
+                       data-mn="512 бөх барилдаж, даваа давсан бөхчүүд алтан гадас, үнэт цом хүртдэг."
+                       data-en="512 wrestlers compete, and victors receive golden stars and valuable trophies."
+                       data-jp="512人のレスラーが競い、勝者は金の星と賞品を受け取ります。"
+                       data-zh="512名摔跤选手参赛，获胜者获得金星和奖杯。">
+                       512 бөх барилдаж, даваа давсан бөхчүүд алтан гадас, үнэт цом хүртдэг.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                <img src="../images/mongolia/uraldaan.jpg" alt="Horse racing" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 mongolian-font"
+                        data-key="horse-title"
+                        data-mn="МОРЬ УРАЛДААН"
+                        data-en="HORSE RACING"
+                        data-jp="馬レース"
+                        data-zh="赛马">
+                        МОРЬ УРАЛДААН
+                    </h3>
+                    <p class="text-gray-200"
+                       data-key="horse-text"
+                       data-mn="5 насны хүүхдүүд морь унаж, 15-30 км зайд уралддаг уламжлалт тэмцээн."
+                       data-en="Children from age 5 ride horses in traditional races spanning 15-30 km."
+                       data-jp="5歳からの子供たちが伝統的な15～30kmの馬レースに参加します。"
+                       data-zh="5岁儿童骑马参加15-30公里的传统比赛。">
+                       5 насны хүүхдүүд морь унаж, 15-30 км зайд уралддаг уламжлалт тэмцээн.
+                    </p>
+                </div>
+            </div>
+
+            <div class="relative overflow-hidden rounded-lg shadow-lg group">
+                <img src="../images/mongolia/harvaa.jpg" alt="Archery" class="w-full h-64 object-cover transition duration-500 group-hover:scale-110">
+                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-80"></div>
+                <div class="absolute bottom-0 left-0 p-6">
+                    <h3 class="text-xl font-bold text-white mb-2 mongolian-font"
+                        data-key="archery-title"
+                        data-mn="СУМЫН ХАРВАА"
+                        data-en="ARCHERY"
+                        data-jp="アーチェリー"
+                        data-zh="射箭">
+                        СУМЫН ХАРВАА
+                    </h3>
+                    <p class="text-gray-200"
+                       data-key="archery-text"
+                       data-mn="Эрэгтэй, эмэгтэй хүмүүс тусдаа 75м, 60м зайнаас сум харвадаг."
+                       data-en="Men and women shoot arrows from 75m and 60m distances respectively."
+                       data-jp="男性と女性はそれぞれ75m、60mの距離から矢を射ます。"
+                       data-zh="男性和女性分别从75米和60米射箭。">
+                       Эрэгтэй, эмэгтэй хүмүүс тусдаа 75м, 60м зайнаас сум харвадаг.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-yellow-700 rounded-lg p-8 text-white">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-bold mb-4 mongolian-font"
+                        data-key="naadam-history-title"
+                        data-mn="НААДАМЫН ТҮҮХ"
+                        data-en="HISTORY OF NAADAM"
+                        data-jp="ナーダムの歴史"
+                        data-zh="那达慕历史">
+                        НААДАМЫН ТҮҮХ
+                    </h3>
+                    <p class="mb-4"
+                       data-key="naadam-history-text1"
+                       data-mn="Наадам нь Монголын түүхэн дэх хамгийн том үндэсний их баяр бөгөөд 1921 оны хувьсгалын ялалтыг тэмдэглэн жил бүр зохион байгуулдаг."
+                       data-en="Naadam is Mongolia's largest national festival, celebrated annually to commemorate the 1921 revolution."
+                       data-jp="ナーダムはモンゴル最大の国民祭で、1921年の革命を記念して毎年開催されます。"
+                       data-zh="那达慕是蒙古最大的国家节日，每年举办以纪念1921年的革命。">
+                       Наадам нь Монголын түүхэн дэх хамгийн том үндэсний их баяр бөгөөд 1921 оны хувьсгалын ялалтыг тэмдэглэн жил бүр зохион байгуулдаг.
+                    </p>
+                    <p data-key="naadam-history-text2"
+                       data-mn="Энэхүү баяр нь Монголчуудын баатарлаг гавьяа, эрч хүч, авхаалж самбааг илэрхийлдэг бөгөөд ЮНЕСКО-гийн Дэлхийн өвд бүртгэгдсэн."
+                       data-en="This festival represents the heroic achievements, vitality, and ingenuity of Mongolians, and is recognized by UNESCO as a World Heritage."
+                       data-jp="この祭りはモンゴル人の英雄的業績、活力、知恵を表し、ユネスコの世界遺産に登録されています。"
+                       data-zh="该节日体现蒙古人的英勇成就、活力和智慧，并被联合国教科文组织列为世界遗产。">
+                       Энэхүү баяр нь Монголчуудын баатарлаг гавьяа, эрч хүч, авхаалж самбааг илэрхийлдэг бөгөөд ЮНЕСКО-гийн Дэлхийн өвд бүртгэгдсэн.
+                    </p>
+                </div>
+                <div class="flex justify-center">
+                    <div class="bg-white text-yellow-700 p-4 rounded-lg shadow-lg text-center w-64 animate-float">
+                        <div class="text-5xl font-bold mb-2">811</div>
+                        <div class="text-lg font-semibold mongolian-font"
+                             data-key="naadam-years"
+                             data-mn="ЖИЛИЙН ТҮҮХТЭЙ"
+                             data-en="YEARS OF HISTORY"
+                             data-jp="歴史年数"
+                             data-zh="历史悠久">
+                            ЖИЛИЙН ТҮҮХТЭЙ
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+   <!-- Mongolian Culture -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100" id="culture">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-4 mongolian-font"
+                data-key="culture-title"
+                data-mn="МОНГОЛЫН СОЁЛ"
+                data-en="MONGOLIAN CULTURE"
+                data-jp="モンゴル文化"
+                data-zh="蒙古文化">
+                МОНГОЛЫН СОЁЛ
+            </h2>
+            <div class="w-24 h-1 bg-yellow-700 mx-auto"></div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-8 items-center mb-12">
+            <div class="order-2 md:order-1">
+                <h3 class="text-2xl mb-4 mongolian-font"
+                    data-key="ger-title"
+                    data-mn="ГЭР АХУЙ"
+                    data-en="TRADITIONAL GER"
+                    data-jp="伝統的なゲル"
+                    data-zh="蒙古包">
+                    ГЭР АХУЙ
+                </h3>
+                <p class="text-gray-700 mb-4"
+                   data-key="ger-text1"
+                   data-mn="Монгол гэр нь нүүдэлчдийн ухааны бүтээл бөгөөд хэдэн цагийн дотор угсран, нураан авч явах боломжтой гайхамшигт орон сууц юм."
+                   data-en="The Mongolian ger is a marvel of nomadic ingenuity, easily assembled and disassembled within hours for mobility."
+                   data-jp="モンゴルのゲルは遊牧民の知恵の結晶で、数時間で組み立て・解体が可能な素晴らしい住居です。"
+                   data-zh="蒙古包是游牧民族智慧的结晶，可在数小时内搭建和拆卸的奇妙住所。">
+                   Монгол гэр нь нүүдэлчдийн ухааны бүтээл бөгөөд хэдэн цагийн дотор угсран, нураан авч явах боломжтой гайхамшигт орон сууц юм.
+                </p>
+                <p class="text-gray-700 mb-6"
+                   data-key="ger-text2"
+                   data-mn="Гэрийн дотор хэсгүүд нь тэгш хэмтэй, төвд нь гал тогоо, баруун талд нь эрэгтэйчүүд, зүүн талд нь эмэгтэйчүүд суудаг уламжлалтай."
+                   data-en="Inside, the ger is symmetrical: a central stove, men sit on the right, women on the left, following tradition."
+                   data-jp="内部は対称で、中央にかまどがあり、男性は右側、女性は左側に座る伝統があります。"
+                   data-zh="蒙古包内部对称，中间有炉灶，男性坐右侧，女性坐左侧，这是传统习俗。">
+                   Гэрийн дотор хэсгүүд нь тэгш хэмтэй, төвд нь гал тогоо, баруун талд нь эрэгтэйчүүд, зүүн талд нь эмэгтэйчүүд суудаг уламжлалтай.
+                </p>
+                <a href="#" class="inline-flex items-center text-yellow-700 font-semibold">
+                    <span data-key="ger-link"
+                          data-mn="Дэлгэрэнгүй"
+                          data-en="Learn More"
+                          data-jp="もっと詳しく"
+                          data-zh="了解更多">
+                        Дэлгэрэнгүй
+                    </span>
+                </a>
+            </div>
+            <div class="order-1 md:order-2">
+                <img src="../images/mongolia/soyl.jpg" alt="Mongolian Ger" class="rounded-lg shadow-xl w-full h-auto">
+            </div>
+        </div>
+    </div>
+
+
+            
+  <!-- Culture Cards -->
+<div class="grid md:grid-cols-2 gap-6">
+   <!-- Deel -->
+<div class="text-center">
+    <h4 class="text-xl font-semibold mb-3 mongolian-font"
+        data-key="deel-title"
+        data-mn="ҮНДЭСНЭЭС ДЭЭЛ"
+        data-en="TRADITIONAL DEEL"
+        data-jp="伝統的なデル"
+        data-zh="传统蒙古袍">
+        ҮНДЭСНЭЭС ДЭЭЛ
+    </h4>
+    <img src="../images/mongolia/deel.jpg" alt="Undesnii Deel" class="mx-auto w-48 h-48 object-cover rounded mb-3">
+    <p class="text-gray-600"
+       data-key="deel-text"
+       data-mn="Монгол дээл нь урт ханцуйтай, өргөн бүсээр бүсэлдэг бөгөөд эртнээс өмсөж ирсэн үндэсний хувцас юм."
+       data-en="The Mongolian deel is a long-sleeved traditional garment tied with a wide belt, worn for centuries."
+       data-jp="モンゴルのデルは長袖で幅広い帯で結ぶ伝統衣装で、何世紀にもわたって着用されてきました。"
+       data-zh="蒙古袍是一种长袖传统服饰，用宽腰带系束，已有数百年历史。">
+       Монгол дээл нь урт ханцуйтай, өргөн бүсээр бүсэлдэг бөгөөд эртнээс өмсөж ирсэн үндэсний хувцас юм.
+    </p>
+</div>
+
+<!-- Morin Khuur -->
+<div class="text-center">
+    <h4 class="text-xl font-semibold mb-3 mongolian-font"
+        data-key="huur-title"
+        data-mn="МОРИН ХУУР"
+        data-en="HORSEHEAD FIDDLE"
+        data-jp="馬頭琴"
+        data-zh="马头琴">
+        МОРИН ХУУР
+    </h4>
+    <img src="../images/mongolia/huur.jpg" alt="Morin Khuur" class="mx-auto w-48 h-48 object-cover rounded mb-3">
+    <p class="text-gray-600"
+       data-key="huur-text"
+       data-mn="Монголын уламжлалт хөгжмийн зэмсэг бөгөөд түүний дуу авиа олон түүхэн домог, яруу найргийн сэдэвт нийцдэг."
+       data-en="The morin khuur is a traditional Mongolian musical instrument whose sound fits many historic legends and poetic themes."
+       data-jp="馬頭琴はモンゴルの伝統的な楽器で、その音色は多くの歴史的な伝説や詩的なテーマに合います。"
+       data-zh="马头琴是蒙古的传统乐器，其音色契合许多历史传说和诗歌主题。">
+       Монголын уламжлалт хөгжмийн зэмсэг бөгөөд түүний дуу авиа олон түүхэн домог, яруу найргийн сэдэвт нийцдэг.
+    </p>
+</div>
+</div>
+</section>
+
+ 
+    <!-- Mongolian Cuisine -->
+<section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="food">
+    <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 mongolian-font"
+                data-key="food-title"
+                data-mn="ЦАГААН ИДЭЭ"
+                data-en="DAIRY PRODUCTS"
+                data-jp="乳製品"
+                data-zh="乳制品">
+                ЦАГААН ИДЭЭ
+            </h2>
+            <div class="w-24 h-1 bg-yellow-700 mx-auto"></div>
+            <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto"
+               data-key="food-intro"
+               data-mn="Монголын уламжлалт хоол нь мах, сүүн БҮТЭЭГДЭХҮҮН бөгөөд сүүн БҮТЭЭГДЭХҮҮН нь кальци, уураг, амин дэм, их энерги өгдөг хүнс юм."
+               data-en="Traditional Mongolian food mainly consists of meat and dairy products, which are rich in calcium, protein, vitamins, and energy."
+               data-jp="伝統的なモンゴル料理は主に肉と乳製品で構成されており、カルシウム、タンパク質、ビタミン、エネルギーが豊富です。"
+               data-zh="蒙古传统食物主要由肉类和乳制品组成，富含钙、蛋白质、维生素和能量。">
+               Монголын уламжлалт хоол нь мах, сүүн БҮТЭЭГДЭХҮҮН бөгөөд сүүн БҮТЭЭГДЭХҮҮН нь кальци, уураг, амин дэм, их энерги өгдөг хүнс юм.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            <div class="food-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold mb-2 mongolian-font"
+                        data-key="aaruul-title"
+                        data-mn="ААРУУЛ"
+                        data-en="AARUUL"
+                        data-jp="アールー"
+                        data-zh="风干奶酪">
+                        ААРУУЛ
+                    </h4>
+                    <img src="../images/mongolia/aaruul.jpg" alt="" class="w-full h-[200px] object-cover rounded">
+                    <p class="text-gray-600 text-sm"
+                       data-key="aaruul-desc"
+                       data-mn="Тарагыг буцалгаж гаргаж авдаг өвөрмөц амттан юм."
+                       data-en="A unique dried curd made by boiling and drying yogurt."
+                       data-jp="ヨーグルトを煮て乾燥させたユニークなお菓子です。"
+                       data-zh="通过煮沸和风干酸奶制成的独特奶制品。">
+                       Тарагыг буцалгаж гаргаж авдаг өвөрмөц амттан юм.
+                    </p>
+                </div>
+            </div>
+
+            <div class="food-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold mb-2 mongolian-font"
+                        data-key="orom-title"
+                        data-mn="ӨРӨМ"
+                        data-en="OROM"
+                        data-jp="オロム"
+                        data-zh="奶油">
+                        ӨРӨМ
+                    </h4>
+                    <img src="../images/mongolia/orom.jpg" alt="" class="w-full h-[200px] object-cover rounded">
+                    <p class="text-gray-600 text-sm"
+                       data-key="orom-desc"
+                       data-mn="Сүүг буцалгаж халуун болгож, дээр нь тогтсон  тосыг салгаж авна."
+                       data-en="Milk is boiled and heated, then the cream on top is collected."
+                       data-jp="ミルクを煮て温め、上に浮いたクリームを取ります。"
+                       data-zh="将牛奶煮沸加热，然后收集上面的奶油层。">
+                       Сүүг буцалгаж халуун болгож, дээр нь тогтсон  тосыг салгаж авна.
+                    </p>
+                </div>
+            </div>
+
+            <div class="food-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold mb-2 mongolian-font"
+                        data-key="airag-title"
+                        data-mn="АЙРАГ"
+                        data-en="AIRAG"
+                        data-jp="アイラグ"
+                        data-zh="马奶酒">
+                        АЙРАГ
+                    </h4>
+                    <img src="../images/mongolia/airag.jpg" alt="" class="w-full h-[200px] object-cover rounded">
+                    <p class="text-gray-600 text-sm"
+                       data-key="airag-desc"
+                       data-mn="Морны сүүг исгэж хийсэн уламжлалт алкохолгүй согтууруулах ундаа юм."
+                       data-en="A traditional non-alcoholic fermented drink made from mare's milk."
+                       data-jp="馬の乳を発酵させて作る伝統的なアルコールなしの飲み物です。"
+                       data-zh="用马奶发酵制成的传统无酒精饮料。">
+                       Морны сүүг исгэж хийсэн уламжлалт алкохолгүй согтууруулах ундаа юм.
+                    </p>
+                </div>
+            </div>
+
+            <div class="food-card bg-gray-50 rounded-lg overflow-hidden shadow-md">
+                <div class="p-4">
+                    <h4 class="text-lg font-semibold mb-2 mongolian-font"
+                        data-key="eezgii-title"
+                        data-mn="ЭЭЗГИЙ"
+                        data-en="EEZGII"
+                        data-jp="エーズギ"
+                        data-zh="奶干">
+                        ЭЭЗГИЙ
+                    </h4>
+                    <img src="../images/mongolia/eezgii.jpg" alt="" class="w-full h-[200px] object-cover rounded">
+                    <p class="text-gray-600 text-sm"
+                       data-key="eezgii-desc"
+                       data-mn="Хонины сүүг хэт хатааж, удаан хугацаанд хадгалах боломжтой болгосон уламжлалт амттан юм."
+                       data-en="A traditional treat made by drying sheep's milk to preserve it long-term."
+                       data-jp="羊の乳を乾燥させて長期間保存できる伝統的なお菓子です。"
+                       data-zh="通过风干羊奶制成的传统甜点，可长期保存。">
+                       Хонины сүүг хэт хатааж, удаан хугацаанд хадгалах боломжтой болгосон уламжлалт амттан юм.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="bg-yellow-100 rounded-lg p-8">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                <div>
+                    <h3 class="text-2xl font-semibold mb-4 mongolian-font"
+                        data-key="dairy-title"
+                        data-mn="СҮҮН БҮТЭЭГДЭХҮҮН"
+                        data-en="DAIRY PRODUCTS"
+                        data-jp="乳製品"
+                        data-zh="乳制品">
+                        СҮҮН БҮТЭЭГДЭХҮҮН
+                    </h3>
+                    <p class="text-gray-700 mb-4"
+                       data-key="dairy-desc1"
+                       data-mn="Монголчууд малаасаа гаргаж авдаг олон төрлийн сүүн бүтээгдэхүүнийг хэрэглэдэг. Үүнд: ааруул, цөцгий, ээлгэ, хурууд, зөөхий зэрэг орно."
+                       data-en="Mongolians consume a variety of dairy products from livestock, including aaruul, cream, elege, khuruud, and zoohii."
+                       data-jp="モンゴル人は家畜から得られる様々な乳製品を消費します。アールー、クリーム、エレグ、フルード、ゾーキーなど。"
+                       data-zh="蒙古人食用来自牲畜的多种乳制品，包括风干奶酪、奶油、羊奶制品等。">
+                       Монголчууд малаасаа гаргаж авдаг олон төрлийн сүүн бүтээгдэхүүнийг хэрэглэдэг. Үүнд: ааруул, цөцгий, ээлгэ, хурууд, зөөхий зэрэг орно.
+                    </p>
+                    <p class="text-gray-700"
+                       data-key="dairy-desc2"
+                       data-mn="Эдгээр нь кальци, уураг, витаминаар баялаг бөгөөд Монголчуудын өдөр тутмын хоолны чухал бүрэлдэхүүн хэсэг юм."
+                       data-en="These are rich in calcium, protein, and vitamins, and form an essential part of the daily Mongolian diet."
+                       data-jp="これらはカルシウム、タンパク質、ビタミンが豊富で、モンゴル人の日常食の重要な部分を構成します。"
+                       data-zh="这些乳制品富含钙、蛋白质和维生素，是蒙古人日常饮食的重要组成部分。">
+                       Эдгээр нь кальци, уураг, витаминаар баялаг бөгөөд Монголчуудын өдөр тутмын хоолны чухал бүрэлдэхүүн хэсэг юм.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-cheese text-3xl text-yellow-700 mb-2"></i>
+                        <span class="font-medium mongolian-font"
+                              data-key="icon-aaruul"
+                              data-mn="ААРУУЛ"
+                              data-en="AARUUL"
+                              data-jp="アールー"
+                              data-zh="风干奶酪">
+                              ААРУУЛ
+                        </span>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-ice-cream text-3xl text-yellow-700 mb-2"></i>
+                        <span class="font-medium mongolian-font"
+                              data-key="icon-tsetsgii"
+                              data-mn="ЦӨЦГИЙ"
+                              data-en="CREAM"
+                              data-jp="クリーム"
+                              data-zh="奶油">
+                              ЦӨЦГИЙ
+                        </span>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-wine-bottle text-3xl text-yellow-700 mb-2"></i>
+                        <span class="font-medium mongolian-font"
+                              data-key="icon-eelege"
+                              data-mn="ЭЭЛГЭ"
+                              data-en="EELEGE"
+                              data-jp="エレグ"
+                              data-zh="羊奶制品">
+                              ЭЭЛГЭ
+                        </span>
+                    </div>
+                    <div class="bg-white p-4 rounded-lg shadow-sm text-center">
+                        <i class="fas fa-blender text-3xl text-yellow-700 mb-2"></i>
+                        <span class="font-medium mongolian-font"
+                              data-key="icon-zoohii"
+                              data-mn="ЗӨӨХИЙ"
+                              data-en="ZOOHII"
+                              data-jp="ゾーキー"
+                              data-zh="奶干">
+                              ЗӨӨХИЙ
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>    
+
+
+
+    <!-- Animals and Nature (Separated into Two Parts) -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100" id="animals">
+       <!-- Animals Section -->
+<div class="max-w-7xl mx-auto mb-16">
+    <div class="text-center mb-12">
+    
+        <h2 class="text-3xl font-bold text-gray-800 mb-8 mongolian-font"
+            data-key="animals-title"
+            data-mn="АН АМЬТАН"
+            data-en="ANIMALS"
+            data-jp="動物"
+            data-zh="动物">
+            АН АМЬТАН
+        </h2>
+        <div class="w-24 h-1 bg-yellow-700 mx-auto"></div>
+        <p class="text-xl text-gray-600 mt-4 max-w-3xl mx-auto"
+           data-key="animals-intro"
+           data-mn="Монголын өвөрмөц амьтад ба эрдэнэсийн сүрэг"
+           data-en="Unique Mongolian animals and herds"
+           data-jp="モンゴルのユニークな動物と群れ"
+           data-zh="蒙古独特的动物及其群体">
+           Монголын өвөрмөц амьтад ба эрдэнэсийн сүрэг
+        </p>
+    </div>
+    
+    <div class="grid md:grid-cols-4 gap-4">
+        <div class="bg-white rounded-lg overflow-hidden shadow-md text-center p-4">
+            <img src="../images/mongolia/aduu.jpg" alt="Horse" class="w-full h-32 object-cover rounded-md mb-3">
+            <h4 class="font-semibold mongolian-font"
+                data-key="animal-horse"
+                data-mn="МОРЬ"
+                data-en="HORSE"
+                data-jp="馬"
+                data-zh="马">
+                МОРЬ
+            </h4>
+            <p class="text-sm text-gray-600 mt-1"
+               data-key="animal-horse-desc"
+               data-mn="Монгол морь нь тэдний амьдралын салшгүй хэсэг юм."
+               data-en="The Mongolian horse is an integral part of their life."
+               data-jp="モンゴルの馬は彼らの生活に欠かせない存在です。"
+               data-zh="蒙古马是他们生活中不可或缺的一部分。">
+               Монгол морь нь тэдний амьдралын салшгүй хэсэг юм.
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden shadow-md text-center p-4">
+            <img src="../images/mongolia/temee.jpg" alt="Camel" class="w-full h-32 object-cover rounded-md mb-3">
+            <h4 class="font-semibold mongolian-font"
+                data-key="animal-camel"
+                data-mn="ТЭМЭЭ"
+                data-en="CAMEL"
+                data-jp="ラクダ"
+                data-zh="骆驼">
+                ТЭМЭЭ
+            </h4>
+            <p class="text-sm text-gray-600 mt-1"
+               data-key="animal-camel-desc"
+               data-mn="Говийн хөлгөн"
+               data-en="The camel of the Gobi desert."
+               data-jp="ゴビ砂漠のラクダ。"
+               data-zh="戈壁沙漠的骆驼。">
+               Говийн хөлгөн
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden shadow-md text-center p-4">
+            <img src="../images/mongolia/argali.jpg" alt="Argali" class="w-full h-32 object-cover rounded-md mb-3">
+            <h4 class="font-semibold mongolian-font"
+                data-key="animal-argali"
+                data-mn="АРГАЛЬ"
+                data-en="ARGALI"
+                data-jp="アルガリ"
+                data-zh="野羊">
+                АРГАЛЬ
+            </h4>
+            <p class="text-sm text-gray-600 mt-1"
+               data-key="animal-argali-desc"
+               data-mn="Дэлхийн хамгийн том хонь"
+               data-en="The largest wild sheep in the world."
+               data-jp="世界最大の野生の羊。"
+               data-zh="世界上最大的野生羊。">
+               Дэлхийн хамгийн том хонь
+            </p>
+        </div>
+
+        <div class="bg-white rounded-lg overflow-hidden shadow-md text-center p-4">
+            <img src="../images/mongolia/sarlag.jpg" alt="Mongolian Gazelle" class="w-full h-32 object-cover rounded-md mb-3">
+            <h4 class="font-semibold mongolian-font"
+                data-key="animal-gazelle"
+                data-mn="САРЛАГ"
+                data-en="GAZELLE"
+                data-jp="ガゼル"
+                data-zh="羚羊">
+                САРЛАГ
+            </h4>
+            <p class="text-sm text-gray-600 mt-1"
+               data-key="animal-gazelle-desc"
+               data-mn="Монголд зөвхөн байдаг"
+               data-en="Found only in Mongolia."
+               data-jp="モンゴルにのみ生息。"
+               data-zh="仅在蒙古发现。">
+               Монголд зөвхөн байдаг
+            </p>
+        </div>
+    </div>
+</div>
+</section>
+
+<!-- Nature Section -->
+<div class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="nature">
+    <div class="max-w-7xl mx-auto">
+        <h3 class="text-3xl font-bold mb-6 mongolian-font text-center"
+            data-key="nature-title"
+            data-mn="МОНГОЛЫН БАЙГАЛЬ"
+            data-en="MONGOLIAN NATURE"
+            data-jp="モンゴルの自然"
+            data-zh="蒙古的自然">
+            МОНГОЛЫН БАЙГАЛЬ
+        </h3>
+        <p class="text-gray-700 mb-6 text-center"
+           data-key="nature-intro"
+           data-mn="Монгол улс нь тал газар, говь, хээр, ойт хээр, тайга, уулын бүс гэх мэт олон төрлийн байгалийн бүсүүдтэй. Энд 139 мянга гаруй төрлийн амьтан, 3000 гаруй төрлийн ургамал бий."
+           data-en="Mongolia has diverse natural zones including steppes, deserts, grasslands, forest-steppe, taiga, and mountains. There are over 139,000 animal species and more than 3,000 plant species."
+           data-jp="モンゴルには草原、砂漠、草地、森林草原、タイガ、山岳など多様な自然地域があります。ここには139,000種以上の動物と3,000種以上の植物が生息しています。"
+           data-zh="蒙古拥有多样的自然区域，包括草原、沙漠、草地、森林草原、针叶林和山地。这里有超过139,000种动物和3,000多种植物。">
+           Монгол улс нь тал газар, говь, хээр, ойт хээр, тайга, уулын бүс гэх мэт олон төрлийн байгалийн бүсүүдтэй. Энд 139 мянга гаруй төрлийн амьтан, 3000 гаруй төрлийн ургамал бий.
+        </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-lg overflow-hidden shadow-md text-center">
+                <h4 class="text-xl  mb-3 mongolian-font"
+                    data-key="nature-dornod"
+                    data-mn="Дорнодийн тал"
+                    data-en="Eastern Steppe"
+                    data-jp="東部ステップ"
+                    data-zh="东部草原">
+                    Дорнодийн тал
+                </h4>
+                <img src="../images/mongolia/dornodiintal.jpg" alt="Дорнодийн тал" class="w-full h-32 object-cover rounded-md mb-2">
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md text-center">
+                <h4 class="text-xl mb-3 mongolian-font"
+                    data-key="nature-altai"
+                    data-mn="Алтайн нуруу"
+                    data-en="Altai Mountains"
+                    data-jp="アルタイ山脈"
+                    data-zh="阿尔泰山脉">
+                    Алтайн нуруу
+                </h4>
+                <img src="../images/mongolia/altaitavanbogd.jpg" alt="Алтайн нуруу" class="w-full h-32 object-cover rounded-md mb-2">
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md text-center">
+                <h4 class="text-xl  mb-3 mongolian-font"
+                    data-key="nature-gobi"
+                    data-mn="Говь"
+                    data-en="Gobi Desert"
+                    data-jp="ゴビ砂漠"
+                    data-zh="戈壁沙漠">
+                    Говь
+                </h4>
+                <img src="../images/mongolia/hongoriinels.jpg" alt="Говь" class="w-full h-32 object-cover rounded-md mb-2">
+            </div>
+            <div class="bg-white rounded-lg overflow-hidden shadow-md text-center">
+                <h4 class="text-xl  mb-3 mongolian-font"
+                    data-key="nature-ulaagchi"
+                    data-mn="Улаагчийн хар нуур"
+                    data-en="Ulaagchi Black Lake"
+                    data-jp="ウラーグチ黒湖"
+                    data-zh="乌拉格奇黑湖">
+                    Улаагчийн хар нуур
+                </h4>
+                <img src="../images/mongolia/ulaagchiinharnuur.jpg" alt="Улаагчийн хар нуур" class="w-full h-32 object-cover rounded-md mb-2">
+            </div>
+        </div>
+    </div>
+</div>
+</section>
+
+
+   
+  <!-- Footer -->
+<footer class="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
+        <div>
+            <h3 class="text-lg font-semibold mb-4 mongolian-font"
+                data-key="footer-mongolia"
+                data-mn="МОНГОЛ УЛС"
+                data-en="MONGOLIA"
+                data-jp="モンゴル"
+                data-zh="蒙古国">
+                МОНГОЛ УЛС
+            </h3>
+            <p class="text-gray-400"
+               data-key="footer-desc"
+               data-mn="Монголын соёл, уламжлал, түүх, байгаль дэлхийг танилцуулсан вэбсайт."
+               data-en="A website introducing Mongolian culture, traditions, history, and nature."
+               data-jp="モンゴルの文化、伝統、歴史、自然を紹介するウェブサイトです。"
+               data-zh="介绍蒙古文化、传统、历史和自然的网站。">
+               Монголын соёл, уламжлал, түүх, байгаль дэлхийг танилцуулсан вэбсайт.
+            </p>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold mb-4 mongolian-font"
+                data-key="footer-links"
+                data-mn="ХОЛБООСУУД"
+                data-en="LINKS"
+                data-jp="リンク"
+                data-zh="链接">
+                ХОЛБООСУУД
+            </h3>
+            <ul class="space-y-2">
+                <li><a href="#" class="text-gray-400 hover:text-white" data-key="footer-link-history" data-mn="Түүх" data-en="History" data-jp="歴史" data-zh="历史">Түүх</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white" data-key="footer-link-naadam" data-mn="Наадам" data-en="Naadam" data-jp="ナーダム" data-zh="那达慕">Наадам</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white" data-key="footer-link-culture" data-mn="Соёл" data-en="Culture" data-jp="文化" data-zh="文化">Соёл</a></li>
+                <li><a href="#" class="text-gray-400 hover:text-white" data-key="footer-link-food" data-mn="Хоол хүнс" data-en="Food" data-jp="料理" data-zh="美食">Хоол хүнс</a></li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold mb-4 mongolian-font"
+                data-key="footer-contact"
+                data-mn="ХОЛБОО БАРИХ"
+                data-en="CONTACT"
+                data-jp="お問い合わせ"
+                data-zh="联系">
+                ХОЛБОО БАРИХ
+            </h3>
+            <ul class="space-y-2">
+                <li class="flex items-center"><i class="fas fa-map-marker-alt mr-2 text-yellow-600"></i> Улаанбаатар хот, Монгол улс</li>
+                <li class="flex items-center"><i class="fas fa-phone-alt mr-2 text-yellow-600"></i> +976 12345678</li>
+                <li class="flex items-center"><i class="fas fa-envelope mr-2 text-yellow-600"></i> info@mongoluls.mn</li>
+            </ul>
+        </div>
+        <div>
+            <h3 class="text-lg font-semibold mb-4 mongolian-font"
+                data-key="footer-social"
+                data-mn="НИЙГМИЙН СҮЛЖЭЭ"
+                data-en="SOCIAL MEDIA"
+                data-jp="ソーシャルメディア"
+                data-zh="社交媒体">
+                НИЙГМИЙН СҮЛЖЭЭ
+            </h3>
+            <div class="flex space-x-4">
+                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-facebook"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-gray-400 hover:text-white text-xl"><i class="fab fa-youtube"></i></a>
+            </div>
+        </div>
+    </div>
+    <div class="border-t border-gray-700 pt-8 text-center text-gray-400">
+        <p data-key="footer-copyright" data-mn="&copy; 2025 Монгол Улс. Бүх эрх хуулиар хамгаалагдсан."
+           data-en="&copy; 2025 Mongolia. All rights reserved."
+           data-jp="&copy; 2025 モンゴル。全著作権所有。"
+           data-zh="&copy; 2025 蒙古。版权所有。">
+           &copy; 2025 Монгол Улс. Бүх эрх хуулиар хамгаалагдсан.
+        </p>
+    </div>
+</footer>
+
+
+   <!-- Additional Details / Disclaimer -->
+<div class="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
+    <div class="max-w-7xl mx-auto">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <ol class="list-decimal list-inside space-y-2 text-gray-700">
+                <li class="mongolian-font" 
+                    data-key="disclaimer-1"
+                    data-mn="Энэхүү вэбсайт нь Монголын соёл, уламжлалыг таниулах зориулалттай"
+                    data-en="This website is intended to introduce Mongolian culture and traditions."
+                    data-jp="このウェブサイトはモンゴルの文化と伝統を紹介することを目的としています。"
+                    data-zh="本网站旨在介绍蒙古的文化和传统。">
+                    Энэхүү вэбсайт нь Монголын соёл, уламжлалыг таниулах зориулалттай
+                </li>
+                <li class="mongolian-font"
+                    data-key="disclaimer-2"
+                    data-mn="Бүх мэдээллийг албан ёсны эх сурвалжаас авсан"
+                    data-en="All information is sourced from official references."
+                    data-jp="すべての情報は公式の情報源から取得されています。"
+                    data-zh="所有信息均来自官方来源。">
+                    Бүх мэдээллийг албан ёсны эх сурвалжаас авсан
+                </li>
+                <li class="mongolian-font"
+                    data-key="disclaimer-3"
+                    data-mn="Зургийн эрхийг хүндэтгэн ашигласан"
+                    data-en="Images are used with respect to copyright."
+                    data-jp="画像は著作権を尊重して使用されています。"
+                    data-zh="图片的使用遵守版权规定。">
+                    Зургийн эрхийг хүндэтгэн ашигласан
+                </li>
+                <li class="mongolian-font"
+                    data-key="disclaimer-4"
+                    data-mn="Алдаа дутагдал тохиолдовол холбогдох хаягаар мэдэгдэнэ үү"
+                    data-en="Please notify us via contact details in case of any errors."
+                    data-jp="エラーがあった場合は、連絡先を通じてお知らせください。"
+                    data-zh="如有错误，请通过联系方式告知我们。">
+                    Алдаа дутагдал тохиолдовол холбогдох хаягаар мэдэгдэнэ үү
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>
+
+
+    <script>
+        // Mobile menu toggle
+        document.getElementById('mobile-menu-button').addEventListener('click', function() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+                menu.classList.add('block');
+            } else {
+                menu.classList.remove('block');
+                menu.classList.add('hidden');
+            }
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        mobileMenu.classList.remove('block');
+                    }
+                }
+            });
+        });
+         // Language switcher
+    function setLanguage(lang) {
+        document.querySelectorAll('[data-key]').forEach(item => {
+            item.textContent = item.dataset[lang];
+        });
+    }
+        
+    </script>
+</body>
+</html>
