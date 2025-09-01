@@ -70,8 +70,7 @@
     </style>
 </head>
 <body>
-    
-    <!-- Navigation -->
+
     <nav class="bg-white shadow-lg">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16">
@@ -87,20 +86,22 @@
                         >МОНГОЛ УЛС
                     </span>
                     </div>
-<!-- Language buttons -->
-        <!-- Language Switcher -->
-        <div class="text-right">
-            <button onclick="setLanguage('mn')" class="px-2 py-1 bg-gray-700 text-white rounded ">MN</button>
-            <button onclick="setLanguage('en')" class="px-2 py-1 bg-gray-700 text-white rounded">EN</button>
-            <button onclick="setLanguage('jp')" class="px-2 py-1 bg-gray-700 text-white rounded">JP</button>
-            <button onclick="setLanguage('zh')" class="px-2 py-1 bg-gray-700 text-white rounded">ZH</button>
-        </div>
-    </header>
-
-    <!-- Бусад хэсгүүд -->
-
+                <div class="text-right">
+                    <button onclick="setLanguage('mn')" class="px-2 py-1 bg-gray-700 text-white rounded ">MN</button>
+                    <button onclick="setLanguage('en')" class="px-2 py-1 bg-gray-700 text-white rounded">EN</button>
+                    <button onclick="setLanguage('jp')" class="px-2 py-1 bg-gray-700 text-white rounded">JP</button>
+                    <button onclick="setLanguage('zh')" class="px-2 py-1 bg-gray-700 text-white rounded">ZH</button>
                 </div>
+            </div>
                 <div class="hidden md:ml-6 md:flex md:items-center md:space-x-8">
+                    <a href="../index.html" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium"
+                    data-key="index-page"
+                    data-mn="НҮҮР"
+                    data-en="HOME"
+                    data-jp="ホーム"
+                    data-zh="首页">
+                    НҮҮР
+                    </a>
                     <a href="#tuh" class="text-gray-800 hover:text-yellow-700 px-3 py-2 rounded-md text-sm font-medium"
                     data-key="history-link"
                     data-mn="ТҮҮХ"
@@ -138,7 +139,7 @@
             </div>
         </div>
         
-        <!-- Mobile menu -->
+        
         <div class="hidden md:hidden" id="mobile-menu">
             <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
                 <a href="#tuh" class="text-gray-800 hover:text-yellow-700 block px-3 py-2 rounded-md text-base font-medium">ТҮҮХ</a>
@@ -150,7 +151,7 @@
         </div>
     </nav>
 
-    <!-- Hero Section -->
+    
     <div class="hero-image flex items-center justify-center">
         <div class="text-center px-4">
             <h1 class="text-4xl md:text-6xl font-bold text-white mb-4 mongolian-font"></h1>
@@ -159,7 +160,7 @@
         </div>
     </div>
 
-   <!-- Introduction / Explore Section -->
+   
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="explore">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -236,7 +237,7 @@
 </section>
 
 
-   <!-- History Section -->
+   
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100" id="tuh">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -374,7 +375,7 @@
 </section>
 
 
-    <!-- Naadam Festival -->
+    
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="naadam">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -515,7 +516,7 @@
 </section>
 
 
-   <!-- Mongolian Culture -->
+   
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100" id="culture">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -574,9 +575,9 @@
 
 
             
-  <!-- Culture Cards -->
+  
 <div class="grid md:grid-cols-2 gap-6">
-   <!-- Deel -->
+   
 <div class="text-center">
     <h4 class="text-xl font-semibold mb-3 mongolian-font"
         data-key="deel-title"
@@ -597,7 +598,7 @@
     </p>
 </div>
 
-<!-- Morin Khuur -->
+
 <div class="text-center">
     <h4 class="text-xl font-semibold mb-3 mongolian-font"
         data-key="huur-title"
@@ -621,7 +622,7 @@
 </section>
 
  
-    <!-- Mongolian Cuisine -->
+    
 <section class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="food">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-12">
@@ -816,9 +817,9 @@
 
 
 
-    <!-- Animals and Nature (Separated into Two Parts) -->
+    
     <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gray-100" id="animals">
-       <!-- Animals Section -->
+       
 <div class="max-w-7xl mx-auto mb-16">
     <div class="text-center mb-12">
     
@@ -925,7 +926,7 @@
 </div>
 </section>
 
-<!-- Nature Section -->
+
 <div class="py-16 px-4 sm:px-6 lg:px-8 bg-white" id="nature">
     <div class="max-w-7xl mx-auto">
         <h3 class="text-3xl font-bold mb-6 mongolian-font text-center"
@@ -997,7 +998,7 @@
 
 
    
-  <!-- Footer -->
+  
 <footer class="bg-gray-800 text-white py-12 px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto grid md:grid-cols-4 gap-8 mb-8">
         <div>
@@ -1075,51 +1076,6 @@
         </p>
     </div>
 </footer>
-
-
-   <!-- Additional Details / Disclaimer -->
-<div class="bg-gray-100 py-8 px-4 sm:px-6 lg:px-8">
-    <div class="max-w-7xl mx-auto">
-        <div class="bg-white p-6 rounded-lg shadow-md">
-            <ol class="list-decimal list-inside space-y-2 text-gray-700">
-                <li class="mongolian-font" 
-                    data-key="disclaimer-1"
-                    data-mn="Энэхүү вэбсайт нь Монголын соёл, уламжлалыг таниулах зориулалттай"
-                    data-en="This website is intended to introduce Mongolian culture and traditions."
-                    data-jp="このウェブサイトはモンゴルの文化と伝統を紹介することを目的としています。"
-                    data-zh="本网站旨在介绍蒙古的文化和传统。">
-                    Энэхүү вэбсайт нь Монголын соёл, уламжлалыг таниулах зориулалттай
-                </li>
-                <li class="mongolian-font"
-                    data-key="disclaimer-2"
-                    data-mn="Бүх мэдээллийг албан ёсны эх сурвалжаас авсан"
-                    data-en="All information is sourced from official references."
-                    data-jp="すべての情報は公式の情報源から取得されています。"
-                    data-zh="所有信息均来自官方来源。">
-                    Бүх мэдээллийг албан ёсны эх сурвалжаас авсан
-                </li>
-                <li class="mongolian-font"
-                    data-key="disclaimer-3"
-                    data-mn="Зургийн эрхийг хүндэтгэн ашигласан"
-                    data-en="Images are used with respect to copyright."
-                    data-jp="画像は著作権を尊重して使用されています。"
-                    data-zh="图片的使用遵守版权规定。">
-                    Зургийн эрхийг хүндэтгэн ашигласан
-                </li>
-                <li class="mongolian-font"
-                    data-key="disclaimer-4"
-                    data-mn="Алдаа дутагдал тохиолдовол холбогдох хаягаар мэдэгдэнэ үү"
-                    data-en="Please notify us via contact details in case of any errors."
-                    data-jp="エラーがあった場合は、連絡先を通じてお知らせください。"
-                    data-zh="如有错误，请通过联系方式告知我们。">
-                    Алдаа дутагдал тохиолдовол холбогдох хаягаар мэдэгдэнэ үү
-                </li>
-            </ol>
-        </div>
-    </div>
-</div>
-
-
     <script>
         // Mobile menu toggle
         document.getElementById('mobile-menu-button').addEventListener('click', function() {

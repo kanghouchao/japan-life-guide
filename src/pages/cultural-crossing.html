@@ -9,10 +9,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Dancing+Script:wght@400;700&family=EB+Garamond:wght@400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/main.css" />
     <link rel="stylesheet" href="../css/cultural-crossing.css">
 </head>
 <body>
-    <div class="pink-line"></div>
+    <header class="pink-line">
+    </header>
     <div class="container">
         <img src="../images/com-picture/stylish-chef-jacket-mockup-showcase_810293-304113.jpg" alt="Abstract background image" class="background-image">
         <div class="text-overlay">
@@ -148,6 +150,9 @@
     </div>
     <audio id="correctSound" src="correct.mp3" preload="auto"></audio>
     <audio id="incorrectSound" src="incorrect.mp3" preload="auto"></audio>
+    <script src="../js/navigation-generator.js"></script>
+    <script src="../js/navigation-init.js"></script>
+    <script src="../js/main.js"></script>
     <script>
         document.querySelectorAll('.quiz-box').forEach(box => {
             box.addEventListener('click', () => {
