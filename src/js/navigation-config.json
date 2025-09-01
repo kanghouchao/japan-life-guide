@@ -13,6 +13,12 @@
             "i18nKey": "nav.chinese_culture",
             "order": 2
         },
+        "communication_culture": {
+            "href": "./pages/communication-culture.html",
+            "hrefFromPages": "./communication-culture.html",
+            "i18nKey": "nav.communication_culture",
+            "order": 7
+        },
         "shiria": {
             "href": "./pages/shiria.html",
             "hrefFromPages": "./shiria.html",
