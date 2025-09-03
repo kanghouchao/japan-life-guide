@@ -174,7 +174,7 @@ html {
 }
 
 .food-visual {
-  background-image: url('../images/chinese-culture/food.jpg');
+  background-image: url('../images/chinese-culture/food.jpeg');
   background-size: cover;
   background-position: center;
   min-height: 450px;
@@ -196,7 +196,7 @@ html {
 }
 
 .architecture-visual {
-  background-image: url('../images/chinese-culture/architecture.jpg');
+  background-image: url('../images/chinese-culture/architecture.jpeg');
   background-size: cover;
   background-position: center;
 }
